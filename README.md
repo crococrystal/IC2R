@@ -32,8 +32,11 @@ The painter now recolors construction-foam walls through IC2's existing
 
 For the local VOID PROTOCOL instance, run `python3 scripts/build-and-launch-void.py`
 (Python 3.11+). It builds, backs up and replaces the instance's IC2 JAR, installs the
-pinned ModernTabs/KubeJS/Rhino dependencies and deploys the external tab configuration,
+pinned ModernTabs/KubeJS/Rhino/REMI dependencies and deploys the external tab configuration,
 then launches PrismLauncher. `--install-only` installs an already verified build.
+REMI 4.7.9 includes the upstream fix that defers sidebar widget initialization until EMI
+finishes loading. Its existing instance settings are preserved; EMI and YACL are already
+provided by the target modpack.
 
 Edit `minecraft/kubejs/config/ic2_creative.json` in the instance for section item IDs,
 the tab name and the item icon (`ic2:mining_laser` by default). The tab uses Minecraft's
@@ -43,10 +46,10 @@ preserving charge, fluids, seeds and other component variants; search entries st
 Tanks and storage boxes are grouped with machines, and reactor parts follow their families
 and capacities. Check the layout and sorting with `node scripts/check-creative-layout.cjs`.
 Section designs live in `minecraft/kubejs/assets/void_protocol/moderntabs/sections/`;
-headings show an icon and bold text on a solid `#C6C6C6` fill, without a decorative banner PNG. Startup-script
+headings show regular text followed by an icon on a solid `#C6C6C6` fill, without a decorative banner PNG. Startup-script
 and section item-list changes need a full restart. Section headings use
 `font/creative_icons.json`: bitmap glyphs
-reference IC2's item textures, with a 2 px left inset and a 3 px icon/title gap.
+reference IC2's item textures, with no left inset and a 3 px title/icon gap.
 The icon components use white to preserve their texture colors. These are flat sprites;
 ModernTabs does not expose item-ID model rendering inside headings. Asset-only changes
 can be reloaded with F3+T. User edits to deployed files are preserved

@@ -19,5 +19,12 @@
     "filename": "rhino-2101.2.7-build.85.jar",
     "url": "https://cdn.modrinth.com/data/sk9knFPE/versions/cQ4POTah/rhino-2101.2.7-build.85.jar",
     "sha512": "0a6c7f4410281aeb03b815ec03487a8e80a4d3dae013d81282e447bf9c08144ef57318af614ea6d40b7d9a8c25031c557890ec792a5895a82467c1643116f693"
+  },
+  {
+    "mod_id": "remi",
+    "version": "4.7.9",
+    "filename": "remi-neoforge-1.21.1-4.7.9.jar",
+    "url": "https://cdn.modrinth.com/data/N9WucjHL/versions/iOekvzRL/remi-neoforge-1.21.1-4.7.9.jar",
+    "sha512": "edd25c5cb8a83a4c0a046d8afd40b5f5b5242b5dd3689b3a951cd47ace3f84942f9b60ed2a1fd802fe16ad884128b92faba4ca6c28b3c265e6e6a70f6b99fc9a"
   }
 ]
