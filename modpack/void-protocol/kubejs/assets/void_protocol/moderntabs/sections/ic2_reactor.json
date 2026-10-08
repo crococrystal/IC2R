@@ -2,7 +2,25 @@
   "priority": 2,
   "title": {
     "text": {
-      "translate": "ic2.creative.section.reactor"
+      "text": "",
+      "extra": [
+        {
+          "text": "",
+          "font": "void_protocol:creative_icons"
+        },
+        {
+          "text": "",
+          "font": "void_protocol:creative_icons",
+          "color": "#FFFFFF"
+        },
+        {
+          "text": "",
+          "font": "void_protocol:creative_icons"
+        },
+        {
+          "translate": "ic2.creative.section.reactor"
+        }
+      ]
     },
     "color": "#303030",
     "background": "#00000000",

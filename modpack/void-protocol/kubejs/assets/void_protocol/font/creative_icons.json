@@ -1,0 +1,83 @@
+{
+  "providers": [
+    {
+      "type": "space",
+      "advances": {
+        "": 4,
+        "": 5
+      }
+    },
+    {
+      "type": "bitmap",
+      "file": "ic2:item/tool/electric/mining_laser.png",
+      "height": 12,
+      "ascent": 10,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "ic2:item/battery/re_battery_0.png",
+      "height": 12,
+      "ascent": 10,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "ic2:item/reactor/fuel_rod/uranium.png",
+      "height": 12,
+      "ascent": 10,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "ic2:item/tool/wrench.png",
+      "height": 12,
+      "ascent": 10,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "ic2:item/tool/electric/diamond_drill.png",
+      "height": 12,
+      "ascent": 10,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "ic2:item/tool/electric/nano_saber_inactive.png",
+      "height": 12,
+      "ascent": 10,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "ic2:item/resource/plate/copper.png",
+      "height": 12,
+      "ascent": 10,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "ic2:item/crop/fertilizer.png",
+      "height": 12,
+      "ascent": 10,
+      "chars": [
+        ""
+      ]
+    }
+  ]
+}

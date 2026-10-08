@@ -32,8 +32,11 @@ the tab name and the item icon (`ic2:mining_laser` by default). The `background`
 multiplies the GUI texture's color; use `#FFFFFF` to preserve its original brightness.
 Section designs live in `minecraft/kubejs/assets/void_protocol/moderntabs/sections/`; PNG banners live in
 `minecraft/kubejs/assets/void_protocol/textures/gui/sprites/`. Startup-script changes
-need a full restart. ModernTabs currently supports sprite banners rather than
-item-ID icons inside section headings. User edits to deployed files are preserved
+need a full restart. Section headings use `font/creative_icons.json`: bitmap glyphs
+reference IC2's item textures, with 4 px extra left padding and a 5 px icon/title gap.
+The icon components use white to preserve their texture colors. These are flat sprites;
+ModernTabs does not expose item-ID model rendering inside headings. Asset-only changes
+can be reloaded with F3+T. User edits to deployed files are preserved
 when their project copies have not changed.
 
 <img src="https://img.shields.io/badge/Minecraft-1.21.1-brightgreen" alt="Minecraft 1.21.1">

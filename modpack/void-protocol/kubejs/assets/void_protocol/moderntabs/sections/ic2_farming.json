@@ -2,7 +2,25 @@
   "priority": 7,
   "title": {
     "text": {
-      "translate": "ic2.creative.section.farming"
+      "text": "",
+      "extra": [
+        {
+          "text": "",
+          "font": "void_protocol:creative_icons"
+        },
+        {
+          "text": "",
+          "font": "void_protocol:creative_icons",
+          "color": "#FFFFFF"
+        },
+        {
+          "text": "",
+          "font": "void_protocol:creative_icons"
+        },
+        {
+          "translate": "ic2.creative.section.farming"
+        }
+      ]
     },
     "color": "#303030",
     "background": "#00000000",

@@ -2,7 +2,25 @@
   "priority": 1,
   "title": {
     "text": {
-      "translate": "ic2.creative.section.generators_and_wiring"
+      "text": "",
+      "extra": [
+        {
+          "text": "",
+          "font": "void_protocol:creative_icons"
+        },
+        {
+          "text": "",
+          "font": "void_protocol:creative_icons",
+          "color": "#FFFFFF"
+        },
+        {
+          "text": "",
+          "font": "void_protocol:creative_icons"
+        },
+        {
+          "translate": "ic2.creative.section.generators_and_wiring"
+        }
+      ]
     },
     "color": "#303030",
     "background": "#00000000",
