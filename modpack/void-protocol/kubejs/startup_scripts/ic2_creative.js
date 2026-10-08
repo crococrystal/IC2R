@@ -6,7 +6,9 @@ if (!ic2CreativeLayout || !ic2CreativeLayout.sections) {
 
 ModernTabs.setExampleTabEnabled(false)
 ModernTabs.configureTab(ic2CreativeLayout.tab,
-  new TabDesign().sectionsEnabled(true))
+  new TabDesign().sectionsEnabled(true)
+    .tabIconLocation('void_protocol:creative/mining_laser')
+    .customTabTitel(new CustomTabTitel().dropShadow(false)))
 
 var ic2CreativeOrder = {}
 var ic2NextOrder = 0
@@ -21,7 +23,11 @@ ic2CreativeLayout.sections.forEach(section => {
 
 StartupEvents.modifyCreativeTab(ic2CreativeLayout.tab, event => {
   event.setIcon(Item.of(ic2CreativeLayout.icon))
-  event.setDisplayName(Text.of(ic2CreativeLayout.title))
+  event.setDisplayName(Text.of({ text: '', bold: false, extra: [
+    { text: '\uE010', font: 'void_protocol:creative_icons', color: '#FFFFFF' },
+    { text: '\uE001', font: 'void_protocol:creative_icons' },
+    { text: ic2CreativeLayout.title }
+  ] }))
   var stacks = []
   event.removeFromParent(stack => {
     var rank = ic2CreativeOrder[String(stack.id)]

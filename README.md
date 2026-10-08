@@ -39,17 +39,19 @@ finishes loading. Its existing instance settings are preserved; EMI and YACL are
 provided by the target modpack.
 
 Edit `minecraft/kubejs/config/ic2_creative.json` in the instance for section item IDs,
-the tab name and the item icon (`ic2:mining_laser` by default). The tab uses Minecraft's
+the tab name and the underlying item icon (`ic2:mining_laser` by default). ModernTabs displays
+the laser's GUI sprite without its charge bar and prefixes the tab heading with the same
+laser glyph as the general section. The tab uses Minecraft's
 untinted background; custom section colors belong to the section designs below.
 Array order controls item order within each section. Sorting reuses existing stacks,
 preserving charge, fluids, seeds and other component variants; search entries stay intact.
 Tanks and storage boxes are grouped with machines, and reactor parts follow their families
 and capacities. Check the layout and sorting with `node scripts/check-creative-layout.cjs`.
 Section designs live in `minecraft/kubejs/assets/void_protocol/moderntabs/sections/`;
-headings show regular text followed by an icon on a solid `#C6C6C6` fill, without a decorative banner PNG. Startup-script
+headings show an icon followed by regular text on a solid `#C6C6C6` fill, without a decorative banner PNG. Startup-script
 and section item-list changes need a full restart. Section headings use
 `font/creative_icons.json`: bitmap glyphs
-reference IC2's item textures, with no left inset and a 3 px title/icon gap.
+reference IC2's item textures, with no left inset and a 3 px icon/title gap.
 The icon components use white to preserve their texture colors. These are flat sprites;
 ModernTabs does not expose item-ID model rendering inside headings. Asset-only changes
 can be reloaded with F3+T. User edits to deployed files are preserved
