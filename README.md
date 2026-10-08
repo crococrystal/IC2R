@@ -4,7 +4,8 @@
 This Legacy fork targets Minecraft 1.21.1 / NeoForge, lets you select textures from IC2
 `2.8.222-ex112`, adds complete Russian localization, and combines IC2's creative
 categories into one standard flat tab. The instance configuration in
-`modpack/void-protocol` adds eight sections using ModernTabs and KubeJS. Based on upstream IC2R `21.1.66`; item and block IDs stay
+`modpack/void-protocol` adds nine sections using ModernTabs and KubeJS, including a
+separate section for all 17 paint rollers. Based on upstream IC2R `21.1.66`; item and block IDs stay
 compatible with that version. The source archive preserves inactive legacy assets
 without reintroducing removed gameplay features. See `docs/legacy-inventory.txt`
 for the item differences and `docs/legacy-textures.json` for the texture mapping.
@@ -30,9 +31,10 @@ then launches PrismLauncher. `--install-only` installs an already verified build
 Edit `minecraft/kubejs/config/ic2_creative.json` in the instance for section item IDs,
 the tab name and the item icon (`ic2:mining_laser` by default). The tab uses Minecraft's
 untinted background; custom section colors belong to the section designs below.
-Section designs live in `minecraft/kubejs/assets/void_protocol/moderntabs/sections/`; PNG banners live in
-`minecraft/kubejs/assets/void_protocol/textures/gui/sprites/`. Startup-script changes
-need a full restart. Section headings use `font/creative_icons.json`: bitmap glyphs
+Section designs live in `minecraft/kubejs/assets/void_protocol/moderntabs/sections/`;
+headings show only an icon and text, without a decorative banner PNG. Startup-script
+and section item-list changes need a full restart. Section headings use
+`font/creative_icons.json`: bitmap glyphs
 reference IC2's item textures, with 4 px extra left padding and a 5 px icon/title gap.
 The icon components use white to preserve their texture colors. These are flat sprites;
 ModernTabs does not expose item-ID model rendering inside headings. Asset-only changes

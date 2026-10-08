@@ -1,5 +1,5 @@
 {
-  "priority": 7,
+  "priority": 8,
   "title": {
     "text": {
       "text": "",
@@ -27,10 +27,6 @@
     "orientation": "left"
   },
   "banner": {
-    "sprite": "void_protocol:creative_section",
-    "color": "#FFFFFF"
-  },
-  "overlay": {
     "color": "#00000000"
   }
 }
