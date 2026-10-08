@@ -9,6 +9,7 @@ import ic2.api.event.ExplosionEvent;
 import ic2.api.event.RetextureEvent;
 import ic2.api.item.IElectricItem;
 import ic2.core.IC2;
+import ic2.core.Ic2CreativeTab;
 import ic2.core.Ic2ItemGroupType;
 import ic2.core.fluid.EnvFluidHandler;
 import ic2.core.item.BlockItemEnergyStorage;
@@ -25,6 +26,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
@@ -274,17 +276,22 @@ public final class EnvProxyForge implements EnvProxy {
     pendingTabRegistrations.add(new TabRegistration(id, iconSupplier, groupType));
     CreativeModeTab tab =
         CreativeModeTab.builder()
+            .withTabFactory(Ic2CreativeTab::new)
             .title(Component.translatable("itemGroup." + id.getNamespace() + "." + id.getPath()))
             .icon(iconSupplier)
             .displayItems(
                 (params, output) -> {
-                  List<Supplier<Item>> items = Ic2Items.CREATIVE_TAB_ITEMS.get(groupType);
-                  if (items != null) {
-                    items.sort(
-                        Comparator.comparing(
-                            s -> BuiltInRegistries.ITEM.getKey(s.get()).toString()));
-                    for (Supplier<Item> itemSupplier : items) {
-                      Item item = itemSupplier.get();
+                  Set<Item> seen = new HashSet<>();
+                  for (Ic2ItemGroupType group : Ic2ItemGroupType.values()) {
+                    List<Item> items =
+                        Ic2Items.CREATIVE_TAB_ITEMS.get(group).stream()
+                            .map(Supplier::get)
+                            .filter(seen::add)
+                            .sorted(
+                                Comparator.comparing(
+                                    item -> BuiltInRegistries.ITEM.getKey(item).toString()))
+                            .toList();
+                    for (Item item : items) {
                       output.accept(new ItemStack(item));
                       if (item instanceof IElectricItem) {
                         output.accept(
@@ -302,11 +309,11 @@ public final class EnvProxyForge implements EnvProxy {
                         output.accept(filledStack);
                       }
                     }
-                  }
 
-                  if (groupType == Ic2ItemGroupType.FARMING) {
-                    for (CropCard crop : Crops.instance.getCrops()) {
-                      output.accept(ItemCropSeed.generateItemStackFromValues(crop, 1, 1, 1, 4));
+                    if (group == Ic2ItemGroupType.FARMING) {
+                      for (CropCard crop : Crops.instance.getCrops()) {
+                        output.accept(ItemCropSeed.generateItemStackFromValues(crop, 1, 1, 1, 4));
+                      }
                     }
                   }
                 })

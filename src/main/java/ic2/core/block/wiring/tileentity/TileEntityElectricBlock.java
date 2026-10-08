@@ -148,7 +148,7 @@ public abstract class TileEntityElectricBlock extends TileEntityInventory
       this.redstoneMode = 0;
     }
 
-    IC2.sideProxy.messagePlayer(player, this.getRedstoneMode());
+    IC2.sideProxy.messagePlayer(player, "ic2.EUStorage.gui.mod.redstone" + this.redstoneMode);
   }
 
   public String getRedstoneMode() {

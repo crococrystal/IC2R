@@ -1,13 +1,20 @@
 package ic2.forge;
 
 import com.mojang.blaze3d.shaders.FogShape;
+import ic2.core.IC2;
+import ic2.core.Ic2CreativeTab;
 import ic2.core.event.EventHandlerClient;
 import ic2.core.event.TickHandler;
 import ic2.core.proxy.SideProxyClient;
 import ic2.core.sound.DeferredSoundOps;
+import java.util.Locale;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.resources.sounds.SoundInstance;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -92,6 +99,47 @@ public final class ClientEventHandlerForge {
   @SubscribeEvent
   public void onGuiCreate(ScreenEvent.Init.Post event) {
     EventHandlerClient.onGuiCreate(event.getScreen(), event.getListenersList(), event::addListener);
+  }
+
+  @SubscribeEvent
+  public void onRenderCreativeSections(ScreenEvent.Render.Post event) {
+    if (!(event.getScreen() instanceof CreativeModeInventoryScreen screen)
+        || !(IC2.tabIc2General instanceof Ic2CreativeTab tab)
+        || !screen.getMenu().items.equals(tab.getGroupedDisplayItems())) {
+      return;
+    }
+
+    int firstRow =
+        tab.getFirstVisibleRow(
+            screen.getMenu().slots.subList(0, 45).stream().map(Slot::getItem).toList());
+    if (firstRow < 0) {
+      return;
+    }
+
+    GuiGraphics graphics = event.getGuiGraphics();
+    tab.getHeaderRows()
+        .forEach(
+            (row, group) -> {
+              int visibleRow = row - firstRow;
+              if (visibleRow >= 0 && visibleRow < 5) {
+                int x = screen.getGuiLeft() + 8;
+                int y = screen.getGuiTop() + 17 + visibleRow * 18;
+                graphics.blit(
+                    IC2.getIdentifier("textures/gui/creative_section.png"),
+                    x,
+                    y,
+                    0,
+                    0,
+                    162,
+                    18,
+                    162,
+                    18);
+                Component title =
+                    Component.translatable(
+                        "ic2.creative.section." + group.name().toLowerCase(Locale.ROOT));
+                graphics.drawString(SideProxyClient.mc.font, title, x + 10, y + 5, 0x303030, false);
+              }
+            });
   }
 
   @SubscribeEvent

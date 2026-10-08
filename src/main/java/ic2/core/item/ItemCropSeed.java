@@ -84,9 +84,14 @@ public class ItemCropSeed extends Item implements ICropSeed {
               "ic2.crop.seed_bag.plant", Component.translatable(crop.getUnlocalizedName())));
     }
     if (scanLevel >= FULLY_ANALYZED_SCAN_LEVEL) {
-      Ic2Tooltip.add(info, Component.literal("§2Gr§7 " + this.getGrowthFromStack(stack)));
-      Ic2Tooltip.add(info, Component.literal("§6Ga§7 " + this.getGainFromStack(stack)));
-      Ic2Tooltip.add(info, Component.literal("§3Re§7 " + this.getResistanceFromStack(stack)));
+      Ic2Tooltip.add(
+          info, Component.translatable("ic2.crop.seed_bag.growth", this.getGrowthFromStack(stack)));
+      Ic2Tooltip.add(
+          info, Component.translatable("ic2.crop.seed_bag.gain", this.getGainFromStack(stack)));
+      Ic2Tooltip.add(
+          info,
+          Component.translatable(
+              "ic2.crop.seed_bag.resistance", this.getResistanceFromStack(stack)));
     }
   }
 

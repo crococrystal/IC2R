@@ -5,8 +5,8 @@
     "down": "ic2:block/wiring/chargepad/chargepad_batbox_bottom",
     "up": "ic2:block/wiring/chargepad/chargepad_batbox_top",
     "north": "ic2:block/wiring/chargepad/chargepad_batbox_front",
-    "east": "ic2:block/wiring/chargepad/chargepad_batbox_leftright",
+    "east": "ic2:block/wiring/chargepad/chargepad_batbox_right",
     "south": "ic2:block/wiring/chargepad/chargepad_batbox_back",
-    "west": "ic2:block/wiring/chargepad/chargepad_batbox_leftright"
+    "west": "ic2:block/wiring/chargepad/chargepad_batbox_left"
   }
 }

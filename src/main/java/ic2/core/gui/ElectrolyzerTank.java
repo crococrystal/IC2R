@@ -63,11 +63,15 @@ public class ElectrolyzerTank extends AbstractFluidSlot {
   protected List<Component> getToolTip() {
     List<Component> ret = super.getToolTip();
     if (this.output != null) {
+      String sideName =
+          switch (this.output.getRight()) {
+            case UP -> "Top";
+            case DOWN -> "Bottom";
+            default -> StringUtils.capitalize(this.output.getRight().getSerializedName());
+          };
       ret.add(
-          Component.literal(
-              "Output Tank: "
-                  + StringUtils.capitalize(
-                      ((Direction) this.output.getRight()).getSerializedName())));
+          Component.translatable(
+              "ic2.Electrolyzer.gui.output_tank", Component.translatable("ic2.dir." + sideName)));
     }
 
     return ret;

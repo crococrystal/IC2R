@@ -213,7 +213,7 @@ public class ItemUpgradeModule extends Item
   @Override
   public List<String> getHudInfo(ItemStack stack, boolean advanced) {
     List<String> info = new LinkedList<>();
-    info.add("Machine Upgrade");
+    info.add(Component.translatable("ic2.upgrade.hud").getString());
     return info;
   }
 

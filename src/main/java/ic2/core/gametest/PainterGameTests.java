@@ -1,10 +1,14 @@
 package ic2.core.gametest;
 
+import ic2.core.IC2;
+import ic2.core.block.misc.WallBlock;
 import ic2.core.item.tool.ItemToolPainter;
+import ic2.core.ref.Ic2Blocks;
 import ic2.core.ref.Ic2Items;
 import ic2.core.util.StackUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.server.level.ServerPlayer;
@@ -61,6 +65,50 @@ public class PainterGameTests {
 
     helper.assertValueEqual(result, InteractionResult.SUCCESS, "painter use result");
     helper.assertBlockPresent(Blocks.BLUE_STAINED_GLASS, TARGET_POS);
+    helper.succeed();
+  }
+
+  @GameTest(template = EMPTY)
+  public static void painterDyesConstructionFoamWallsInEveryColor(GameTestHelper helper) {
+    ServerPlayer player = makePlayer(helper);
+    for (DyeColor color : DyeColor.values()) {
+      helper.setBlock(
+          TARGET_POS, color == DyeColor.WHITE ? Ic2Blocks.BLACK_WALL : Ic2Blocks.WHITE_WALL);
+      ItemStack stack =
+          new ItemStack(
+              BuiltInRegistries.ITEM.get(IC2.getIdentifier(color.getName() + "_painter")));
+      player.setItemInHand(InteractionHand.MAIN_HAND, stack);
+      InteractionResult result =
+          stack.getItem().useOn(Ic2GameTestUtil.useOn(helper, player, TARGET_POS, Direction.NORTH));
+
+      helper.assertValueEqual(result, InteractionResult.SUCCESS, "wall painter use result");
+      helper.assertBlockPresent(WallBlock.get(color), TARGET_POS);
+      helper.assertValueEqual(
+          player.getMainHandItem().getDamageValue(), 1, "wall painter durability used");
+
+      result =
+          stack.getItem().useOn(Ic2GameTestUtil.useOn(helper, player, TARGET_POS, Direction.NORTH));
+      helper.assertValueEqual(result, InteractionResult.PASS, "same-color wall must not repaint");
+      helper.assertValueEqual(
+          player.getMainHandItem().getDamageValue(), 1, "same-color wall must not use durability");
+    }
+    helper.succeed();
+  }
+
+  @GameTest(template = EMPTY)
+  public static void creativePainterDyesConstructionFoamWithoutDurabilityCost(
+      GameTestHelper helper) {
+    helper.setBlock(TARGET_POS, Ic2Blocks.WHITE_WALL);
+    ServerPlayer player = makePlayer(helper);
+    player.setGameMode(GameType.CREATIVE);
+    ItemStack stack = new ItemStack(Ic2Items.BLUE_PAINTER);
+    player.setItemInHand(InteractionHand.MAIN_HAND, stack);
+    InteractionResult result =
+        stack.getItem().useOn(Ic2GameTestUtil.useOn(helper, player, TARGET_POS, Direction.UP));
+
+    helper.assertValueEqual(result, InteractionResult.SUCCESS, "creative wall painter use result");
+    helper.assertBlockPresent(Ic2Blocks.BLUE_WALL, TARGET_POS);
+    helper.assertValueEqual(stack.getDamageValue(), 0, "creative painter must not use durability");
     helper.succeed();
   }
 

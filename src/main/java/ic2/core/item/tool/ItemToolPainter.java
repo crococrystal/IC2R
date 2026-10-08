@@ -1,6 +1,7 @@
 package ic2.core.item.tool;
 
 import ic2.api.item.IBoxable;
+import ic2.api.tile.StainableBlock;
 import ic2.core.IC2;
 import ic2.core.ref.Ic2Items;
 import ic2.core.ref.Ic2SoundEvents;
@@ -98,7 +99,11 @@ public class ItemToolPainter extends ItemToolCrafting implements IBoxable {
 
     BlockState state = world.getBlockState(pos);
     Block block = state.getBlock();
-    if (this.colorBlock(world, pos, block, state, this.color)) {
+    boolean colored =
+        block instanceof StainableBlock stainable
+            ? stainable.setColor(world, pos, context.getClickedFace(), this.color.dyeColor)
+            : this.colorBlock(world, pos, block, state, this.color);
+    if (colored) {
       boolean isDamaged = this.damagePainter(stack, player, hand, this.color);
       if (world.isClientSide) {
         player.playSound(Ic2SoundEvents.ITEM_PAINTER_USE, 1.0F, 1.0F);
@@ -262,9 +267,9 @@ public class ItemToolPainter extends ItemToolCrafting implements IBoxable {
       boolean newValue = !nbtData.getBoolean("autoRefill");
       nbtData.putBoolean("autoRefill", newValue);
       if (newValue) {
-        IC2.sideProxy.messagePlayer(player, "Painter automatic refill mode enabled");
+        IC2.sideProxy.messagePlayer(player, "ic2.painter.auto_refill.enabled");
       } else {
-        IC2.sideProxy.messagePlayer(player, "Painter automatic refill mode disabled");
+        IC2.sideProxy.messagePlayer(player, "ic2.painter.auto_refill.disabled");
       }
 
       return new InteractionResultHolder<>(InteractionResult.SUCCESS, stack);

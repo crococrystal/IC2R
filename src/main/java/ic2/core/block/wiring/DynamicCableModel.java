@@ -53,7 +53,7 @@ public abstract class DynamicCableModel<T, E> implements UnbakedModel, BakedMode
   private static Material getTextureId(
       CableType type, int insulation, DyeColor color, boolean active) {
     StringBuilder sb = new StringBuilder(50);
-    sb.append("blocks/wiring/cable/");
+    sb.append("block/wiring/cable/");
     sb.append(type.name());
     sb.append("_cable_");
     sb.append(insulation);
@@ -107,11 +107,11 @@ public abstract class DynamicCableModel<T, E> implements UnbakedModel, BakedMode
     if (!this.foam.isPresent()) {
       this.particleTexture = this.blackSprite;
     } else if (this.foam.isSoft()) {
-      this.particleTexture = textureGetter.apply(getTextureId("blocks/cf/foam"));
+      this.particleTexture = textureGetter.apply(getTextureId("block/cf/foam"));
     } else {
       this.particleTexture =
           textureGetter.apply(
-              getTextureId("blocks/cf/wall_".concat(this.foam.getColor().getSerializedName())));
+              getTextureId("block/cf/wall_".concat(this.foam.getColor().getSerializedName())));
     }
 
     if (this.insulation >= this.type.minColoredInsulation) {

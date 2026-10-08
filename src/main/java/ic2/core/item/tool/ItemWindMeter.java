@@ -62,11 +62,9 @@ public class ItemWindMeter extends ItemElectricTool implements PriorityUsableIte
     if (te instanceof TileEntityWindKineticGenerator windyTE) {
       if (!windyTE.getActive()) {
         if (windyTE.hasRotor()) {
-          IC2.sideProxy.messagePlayer(
-              player, Component.translatable("ic2.wind_meter.info.rotor.blocked").getString());
+          IC2.sideProxy.messagePlayer(player, "ic2.wind_meter.info.rotor.blocked");
         } else {
-          IC2.sideProxy.messagePlayer(
-              player, Component.translatable("ic2.wind_meter.info.rotor.none").getString());
+          IC2.sideProxy.messagePlayer(player, "ic2.wind_meter.info.rotor.none");
         }
 
         return InteractionResult.FAIL;
@@ -76,19 +74,13 @@ public class ItemWindMeter extends ItemElectricTool implements PriorityUsableIte
           float displayWind = roundWind(windyTE.calcWindStrength());
           if (displayWind <= 0.0F) {
             IC2.sideProxy.messagePlayer(
-                player,
-                Component.translatable("ic2.wind_meter.info.obstructed", windyTE.getObstructions())
-                    .getString());
+                player, "ic2.wind_meter.info.obstructed", windyTE.getObstructions());
           } else {
-            IC2.sideProxy.messagePlayer(
-                player,
-                Component.translatable("ic2.wind_meter.info.effective", displayWind).getString());
+            IC2.sideProxy.messagePlayer(player, "ic2.wind_meter.info.effective", displayWind);
           }
         } else {
           IC2.sideProxy.messagePlayer(
-              player,
-              Component.translatable("ic2.wind_meter.info.blocked", windyTE.getRotorDiameter() * 3)
-                  .getString());
+              player, "ic2.wind_meter.info.blocked", windyTE.getRotorDiameter() * 3);
         }
 
         return InteractionResult.SUCCESS;
@@ -103,13 +95,9 @@ public class ItemWindMeter extends ItemElectricTool implements PriorityUsableIte
       float displayWind = roundWind(wind);
       if (displayWind <= 0.0F) {
         IC2.sideProxy.messagePlayer(
-            player,
-            Component.translatable("ic2.wind_meter.info.obstructed", windyTE.getObstructions())
-                .getString());
+            player, "ic2.wind_meter.info.obstructed", windyTE.getObstructions());
       } else {
-        IC2.sideProxy.messagePlayer(
-            player,
-            Component.translatable("ic2.wind_meter.info.effective", displayWind).getString());
+        IC2.sideProxy.messagePlayer(player, "ic2.wind_meter.info.effective", displayWind);
       }
 
       return InteractionResult.SUCCESS;
@@ -135,8 +123,7 @@ public class ItemWindMeter extends ItemElectricTool implements PriorityUsableIte
       windStrength = 0.0;
     }
 
-    IC2.sideProxy.messagePlayer(
-        player, Component.translatable("ic2.wind_meter.info", roundWind(windStrength)).getString());
+    IC2.sideProxy.messagePlayer(player, "ic2.wind_meter.info", roundWind(windStrength));
     return new InteractionResultHolder<>(InteractionResult.SUCCESS, stack);
   }
 }

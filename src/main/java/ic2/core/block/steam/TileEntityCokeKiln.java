@@ -390,22 +390,13 @@ public class TileEntityCokeKiln extends TileEntityBase implements IHasGui, IGuiV
   @Override
   public void appendItemTooltip(ItemStack stack, List<Component> tooltip, TooltipFlag advanced) {
     Ic2Tooltip.add(tooltip, Component.literal(""));
-    Ic2Tooltip.add(tooltip, Component.literal("MultiBlock Structure:"));
+    Ic2Tooltip.add(tooltip, Component.translatable("ic2.coke_kiln.tooltip.structure"));
     Ic2Tooltip.add(tooltip, Component.literal(""));
-    Ic2Tooltip.add(
-        tooltip,
-        Component.literal(
-            " Bottom Layer - 3x3 of Refractory Blocks with a Coke Kiln Grate in the centre"));
+    Ic2Tooltip.add(tooltip, Component.translatable("ic2.coke_kiln.tooltip.bottom"));
     Ic2Tooltip.add(tooltip, Component.literal(""));
-    Ic2Tooltip.add(
-        tooltip,
-        Component.literal(
-            " Middle Layer - 3x3 of Refractory Blocks with a hollow centre and this block in the middle of one of the sides"));
+    Ic2Tooltip.add(tooltip, Component.translatable("ic2.coke_kiln.tooltip.middle"));
     Ic2Tooltip.add(tooltip, Component.literal(""));
-    Ic2Tooltip.add(
-        tooltip,
-        Component.literal(
-            " Top Layer - 3x3 of Refractory Blocks with a Coke Kiln Hatch in the centre"));
+    Ic2Tooltip.add(tooltip, Component.translatable("ic2.coke_kiln.tooltip.top"));
     Ic2Tooltip.add(tooltip, Component.literal(""));
   }
 

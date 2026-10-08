@@ -61,7 +61,9 @@ public final class SideProxyServer implements SideProxy {
     Component[] encodedArgs = new Component[args.length];
 
     for (int i = 0; i < args.length; i++) {
-      if (args[i] instanceof String && ((String) args[i]).contains("ic2.")) {
+      if (args[i] instanceof Component component) {
+        encodedArgs[i] = component;
+      } else if (args[i] instanceof String && ((String) args[i]).contains("ic2.")) {
         encodedArgs[i] = Component.translatable((String) args[i]);
       } else {
         encodedArgs[i] = Component.literal(args[i].toString());
@@ -192,7 +194,9 @@ public final class SideProxyServer implements SideProxy {
 
   @Override
   public void messagePlayer(Player player, Component translatable) {
-    messagePlayer(player, translatable.getString());
+    if (player instanceof ServerPlayer) {
+      player.displayClientMessage(translatable, false);
+    }
   }
 
   @Override

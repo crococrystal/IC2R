@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "particle": "ic2:block/fluid/fluid_water_still"
+    "particle": "ic2:block/fluid/hot_water_still"
   }
 }

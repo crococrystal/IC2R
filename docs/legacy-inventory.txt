@@ -1,0 +1,588 @@
+IC2R Legacy 21.1.66-legacy.1 — сравнение с IC2 Experimental 2.8.222
+
+База: NeoForge 1.21.1, IC2R21.1.66. Реестр предметов и рецепты в этом форке не удалялись.
+506 явных ID предметов в Ic2Items +17 автоматически создаваемых ведер =523 ID.
+В одну вкладку объединены все502 предмета из восьми прежних вкладок; заряд, заполнение и семена культур создают дополнительные варианты стеков.
+Прежние категории сохранены отдельными разделами с заголовками: основное, генераторы и проводка, реактор, машины, инструменты, снаряжение, материалы, сельское хозяйство. Разделители не являются предметами и не попадают в поиск.
+Исправлена ошибка исходного IC2R: валик теперь красит затвердевший пенобетон во все16 цветов. Укреплённый камень не является пенобетоном и не красится.
+Число ID нельзя сравнивать напрямую с1.12.2: старый мод хранил несколько материалов/цветов/машин под одним ID с метаданными.
+
+НУЖНЫ ДЛЯ СОВРЕМЕННОГО МИРА
+Сырые руды и глубинные варианты поддерживают добычу и генерацию1.21.1. Оставлены:
+- ic2:deepslate_lead_ore — Свинцовая руда в глубинном сланце
+- ic2:deepslate_tin_ore — Оловянная руда в глубинном сланце
+- ic2:deepslate_uranium_ore — Урановая руда в глубинном сланце
+- ic2:raw_lead — Рудный свинец
+- ic2:raw_tin — Рудное олово
+- ic2:raw_uranium — Рудный уран
+- ic2:raw_lead_block — Блок рудного свинца
+- ic2:raw_tin_block — Блок рудного олова
+- ic2:raw_uranium_block — Блок рудного урана
+
+ОСНОВНОЕ СОДЕРЖИМОЕ, ОСТАВЛЕНО
+Машины обработки, генераторы, EU-провода, трансформаторы, энергохранилища и зарядные плиты, реакторы и компоненты, инструменты, наноброня/квантовая броня, реактивные ранцы, сельское хозяйство, телепорт, хранилища и резервуары.
+Медь использует ванильные ID Minecraft1.21.1; это не пропавшая медь IC2. В этом форке три базовые медные текстуры заменены оригиналами IC2.
+
+ДОПОЛНИТЕЛЬНОЕ СОДЕРЖИМОЕ: МОЖНО ОБСУДИТЬ УДАЛЕНИЕ ОТДЕЛЬНО
+Гевейная мебель/новые формы древесины и фильтр шахтёра — дополнительные современные возможности. Не являются обязательными для исходной цепочки IC2. Сохраняем существующие ID и рецепты:
+- ic2:stripped_rubber_log — Обтёсанное бревно гевеи
+- ic2:stripped_rubber_wood — Обтёсанная древесина гевеи
+- ic2:rubber_wood — Древесина гевеи
+- ic2:rubber_planks — Доски из гевеи
+- ic2:rubber_button — Кнопка из гевеи
+- ic2:rubber_door — Дверь из гевеи
+- ic2:rubber_fence — Забор из гевеи
+- ic2:rubber_fence_gate — Калитка из гевеи
+- ic2:rubber_pressure_plate — Нажимная плита из гевеи
+- ic2:rubber_sign — Табличка из гевеи
+- ic2:rubber_slab — Плита из гевеи
+- ic2:rubber_stairs — Ступеньки из гевеи
+- ic2:rubber_trapdoor — Люк из гевеи
+- ic2:mining_filter_upgrade — Улучшение «Фильтр добычи»
+
+СЛУЖЕБНЫЕ И СКРЫТЫЕ ПРЕДМЕТЫ
+ic2:creative_generator — креативный генератор для тестов/креатива; присутствовал и в старом TeBlock. Это не новая лишняя машина.
+ic2:debug_item — отладочный предмет; присутствовал в старом ItemName, не выставлен во вкладке.
+Унаследованные скрытые ID без записи в категориях креатива:
+- ic2:tritium_fuel_rod — Топливный стержень (Тритий)
+- ic2:debug_item — Предмет отладки
+- ic2:weed_ex_cell — Капсула средства от сорняков
+- ic2:hydration_cell — Увлажняющая капсула
+
+СТАРОЕ СОДЕРЖИМОЕ, КОТОРОГО В БАЗЕ IC2R НЕТ
+Эти функции не возвращены переносом текстур. Их восстановление требует отдельного переноса логики и рецептов:
+- Scaffold/iron scaffold: IC2-леса заменены ванильными строительными лесами; старый способ пеногенерации по железным лесам отсутствует.
+- Предметная UU-материя (розовый предмет), mass_fabricator и uu_assembly_bench: отсутствуют. Сохраняется жидкая UU-материя, matter_generator, сканер, хранилище шаблонов и репликатор.
+- Refined iron ingot: старая профильная разновидность; в Experimental его роль выполняет сталь.
+- Солнечный шлем и статические ботинки: старые классы ItemArmorSolarHelmet/ItemArmorStaticBoots и их создание присутствуют в2.8.222; новых регистраций здесь нет.
+- Бочка/алкоголь, заполненная топливная канистра и йодная таблетка: старые классы ItemBarrel/ItemBooze/ItemFilledFuelCan/ItemIodineTablet создавались в2.8.222; соответствующих предметов в этом реестре нет.
+- Старая система труб/покрытий: современные IC2R-предметы не повторяют полный прежний API логистических покрытий.
+Присутствие enum-константы/текстуры само по себе не означает доступный игровой предмет. Неиспользуемые plasma_launcher/test_pick не выдаются за потерянные обычные инструменты.
+
+ВАДЖРА И ГРАВИКОСТЮМ
+Vajra и GraviChestPlate принадлежат отдельному Gravitation Suite, не базовому IC2. В этот JAR не добавлены; их функциональность нельзя получить одним копированием текстур.
+
+ПОЛНЫЙ СПИСОК СОВРЕМЕННЫХ ID ПРЕДМЕТОВ
+ic2:advanced_batpack — Улучшенный аккумуляторный ранец
+ic2:advanced_charging_re_battery — Улучшенный заряжающий аккумулятор
+ic2:advanced_circuit — Улучшенная электросхема
+ic2:advanced_ejector_upgrade — Улучшение "Улучшенный выталкиватель"
+ic2:advanced_heat_exchanger — Улучшенный теплообменник
+ic2:advanced_heat_vent — Улучшенный теплоотвод
+ic2:advanced_machine — Улучшенный корпус машины
+ic2:advanced_miner — Улучшенная буровая установка
+ic2:advanced_pulling_upgrade — Улучшение "Улучшенный затягиватель"
+ic2:advanced_re_battery — Улучшенный аккумулятор
+ic2:advanced_scanner — Сканер ЦР
+ic2:air_bucket — Ведро сжатого воздуха
+ic2:air_cell — Капсула сжатого воздуха
+ic2:alloy — Композит
+ic2:alloy_chestplate — Композитный жилет
+ic2:ashes — Пепел
+ic2:batbox — Энергохранилище
+ic2:batbox_chargepad — Заряжающая плита (Эн.хр)
+ic2:batch_crafter — Автоматический верстак
+ic2:batpack — Аккумуляторный ранец
+ic2:bio_chaff — Отходы
+ic2:biogas_bucket — Ведро биогаза
+ic2:biogas_cell — Капсула биогаза
+ic2:biomass_bucket — Ведро биомассы
+ic2:biomass_cell — Капсула биомассы
+ic2:black_painter — Чёрный валик
+ic2:black_wall — Чёрный пенобетон
+ic2:blank_tfbp — Террачип
+ic2:blast_furnace — Доменная печь
+ic2:block_cutter — Режущая машина
+ic2:blue_painter — Синий валик
+ic2:blue_wall — Синий пенобетон
+ic2:bobs_yer_uncle_ranks_berry — Ягода дядюшки Боба
+ic2:broken_rubber_boat — Сломанная резиновая лодка
+ic2:bronze_axe — Бронзовый топор
+ic2:bronze_block — Бронзовый блок
+ic2:bronze_boots — Бронзовые ботинки
+ic2:bronze_casing — Бронзовая оболочка
+ic2:bronze_chestplate — Бронзовый нагрудник
+ic2:bronze_dust — Бронзовая пыль
+ic2:bronze_helmet — Бронзовый шлем
+ic2:bronze_hoe — Бронзовая мотыга
+ic2:bronze_ingot — Бронзовый слиток
+ic2:bronze_leggings — Бронзовые поножи
+ic2:bronze_pickaxe — Бронзовая кирка
+ic2:bronze_plate — Бронзовая пластина
+ic2:bronze_rotor — Бронзовый ротор
+ic2:bronze_rotor_blade — Бронзовая лопасть ротора
+ic2:bronze_shaft — Бронзовый стержень
+ic2:bronze_shovel — Бронзовая лопата
+ic2:bronze_storage_box — Бронзовый контейнер
+ic2:bronze_sword — Бронзовый меч
+ic2:bronze_tank — Бронзовый бак
+ic2:brown_painter — Коричневый валик
+ic2:brown_wall — Коричневый пенобетон
+ic2:canner — Наполнитель
+ic2:carbon_boat — Углепластиковое каноэ
+ic2:carbon_fibre — Углеволокно
+ic2:carbon_mesh — Углеткань
+ic2:carbon_plate — Углепластик
+ic2:carbon_rotor — Углеволоконный ротор
+ic2:carbon_rotor_blade — Углеволоконная лопасть ротора
+ic2:centrifuge — Тепловая центрифуга
+ic2:cesu — МЭСН
+ic2:cesu_chargepad — Заряжающая плита (МЭСН)
+ic2:cf_pack — Ранец с пеной
+ic2:cf_powder — Строительный порошок
+ic2:chainsaw — Электропила
+ic2:charging_energy_crystal — Заряжающий энергетический кристалл
+ic2:charging_lapotron_crystal — Заряжающий лазуротроновый кристалл
+ic2:charging_re_battery — Заряжающий аккумулятор
+ic2:chilling_tfbp — Террачип "Охлаждение"
+ic2:chunk_loader — Загрузчик чанков
+ic2:circuit — Электросхема
+ic2:clay_dust — Глиняная пыль
+ic2:coal_ball — Угольный шарик
+ic2:coal_block — Сжатый угольный шарик
+ic2:coal_chunk — Угольная глыба
+ic2:coal_dust — Угольная пыль
+ic2:coal_fuel_dust — Гидратированная угольная пыль
+ic2:coffee_beans — Кофейные зёрна
+ic2:coffee_mug — Кофе
+ic2:coffee_powder — Молотый кофе
+ic2:coil — Катушка
+ic2:coin — Промышленная монета
+ic2:coke — Угольный кокс
+ic2:coke_kiln — Коксовая батарея
+ic2:coke_kiln_grate — Поддон коксовой батареи
+ic2:coke_kiln_hatch — Люк коксовой батареи
+ic2:cold_coffee_mug — Холодный кофе
+ic2:component_heat_exchanger — Компонентный теплообменник
+ic2:component_heat_vent — Компонентный теплоотвод
+ic2:compressor — Сжиматель
+ic2:condenser — Конденсатор пара
+ic2:construction_foam_bucket — Ведро строительной пены
+ic2:construction_foam_cell — Капсула строительной пены
+ic2:containment_reactor_plating — Сдерживающая реакторная обшивка
+ic2:coolant_bucket — Ведро хладагента
+ic2:coolant_cell — Капсула хладагента
+ic2:copper_boiler — Медный нагреватель
+ic2:copper_cable — Медный провод
+ic2:copper_casing — Медная оболочка
+ic2:copper_dust — Медная пыль
+ic2:copper_plate — Медная пластина
+ic2:creative_generator — Творческий генератор
+ic2:creosote_bucket — Ведро креозота
+ic2:creosote_cell — Капсула креозота
+ic2:crop_analyzer — Анализатор семян
+ic2:crop_harvester — Сборщик урожая
+ic2:crop_seed_bag — Мешок с семенами
+ic2:crop_stick — Жёрдочки
+ic2:cropmatron — Автосадовник
+ic2:crowbar — Съёмщик накладок
+ic2:crushed_copper — Измельчённая медная руда
+ic2:crushed_gold — Измельчённая золотая руда
+ic2:crushed_iron — Измельчённая железная руда
+ic2:crushed_lead — Измельчённая свинцовая руда
+ic2:crushed_silver — Измельчённая серебряная руда
+ic2:crushed_tin — Измельчённая оловянная руда
+ic2:crushed_uranium — Измельчённая урановая руда
+ic2:crystal_memory — Кристалл памяти
+ic2:cultivation_tfbp — Террачип "Озеленение"
+ic2:cutter — Кусачки
+ic2:cyan_painter — Бирюзовый валик
+ic2:cyan_wall — Бирюзовый пенобетон
+ic2:dark_coffee_mug — Тёмный кофе
+ic2:debug_item — Предмет отладки
+ic2:deepslate_lead_ore — Свинцовая руда в глубинном сланце
+ic2:deepslate_tin_ore — Оловянная руда в глубинном сланце
+ic2:deepslate_uranium_ore — Урановая руда в глубинном сланце
+ic2:dense_bronze_plate — Плотная бронзовая пластина
+ic2:dense_copper_plate — Плотная медная пластина
+ic2:dense_gold_plate — Плотная золотая пластина
+ic2:dense_iron_plate — Плотная железная пластина
+ic2:dense_lapis_plate — Плотная лазуритовая пластина
+ic2:dense_lead_plate — Плотная свинцовая пластина
+ic2:dense_obsidian_plate — Плотная обсидиановая пластина
+ic2:dense_steel_plate — Плотная стальная пластина
+ic2:dense_tin_plate — Плотная оловянная пластина
+ic2:depleted_dual_mox_fuel_rod — Сдвоенный топливный стержень (Обеднённый MOX)
+ic2:depleted_dual_uranium_fuel_rod — Сдвоенный топливный стержень (Обеднённый уран)
+ic2:depleted_isotope_fuel_rod — Обеднённый ТВЭЛ
+ic2:depleted_mox_fuel_rod — Топливный стержень (Обеднённый MOX)
+ic2:depleted_quad_mox_fuel_rod — Счетверённый топливный стержень (Обеднённый MOX)
+ic2:depleted_quad_uranium_fuel_rod — Счетверённый топливный стержень (Обеднённый уран)
+ic2:depleted_uranium_fuel_rod — Топливный стержень (Обеднённый уран)
+ic2:desertification_tfbp — Террачип "Опустынивание"
+ic2:detector_cable — Провод-детектор
+ic2:diamond_cutting_blade — Алмазный режущий диск
+ic2:diamond_drill — Алмазный бур
+ic2:diamond_dust — Алмазная пыль
+ic2:distilled_water_bucket — Ведро дистиллированной воды
+ic2:distilled_water_cell — Капсула дистиллированной воды
+ic2:double_insulated_gold_cable — Золотой провод с двойной изоляцией
+ic2:double_insulated_iron_cable — Высоковольтный провод с двойной изоляцией
+ic2:drill — Шахтёрский бур
+ic2:dual_mox_fuel_rod — Сдвоенный топливный стержень (MOX)
+ic2:dual_uranium_fuel_rod — Сдвоенный топливный стержень (Уран)
+ic2:ejector_upgrade — Улучшение "Выталкиватель"
+ic2:electric_boat — Электролодка
+ic2:electric_furnace — Электрическая печь
+ic2:electric_heat_generator — Электрический теплогенератор
+ic2:electric_hoe — Электромотыга
+ic2:electric_kinetic_generator — Электрический кинетический генератор
+ic2:electric_motor — Электромотор
+ic2:electric_treetap — Электрокраник
+ic2:electric_wrench — Электроключ
+ic2:electrolyzed_water_cell — Капсула электролизованной воды
+ic2:electrolyzer — Электролизёр
+ic2:empty_cell — Пустая капсула
+ic2:empty_mug — Каменная кружка
+ic2:ender_pearl_dust — Пыль жемчуга Эндера
+ic2:energium_dust — Энергетическая пыль
+ic2:energy_crystal — Энергетический кристалл
+ic2:energy_o_mat — Энергообменник
+ic2:energy_pack — Энергетический ранец
+ic2:energy_storage_upgrade — Улучшение "Энергохранитель"
+ic2:ev_transformer — Трансформатор СВН
+ic2:extractor — Экстрактор
+ic2:fermenter — Ферментер
+ic2:fertilizer — Удобрение
+ic2:filled_tin_can — Заполненная консервная банка
+ic2:flatification_tfbp — Террачип "Выравнивание"
+ic2:fluid_bottler — Разливочная машина
+ic2:fluid_distributor — Жидкостный распределитель
+ic2:fluid_ejector_upgrade — Улучшение "Выталкиватель жидкостей"
+ic2:fluid_heat_generator — Жидкостный теплогенератор
+ic2:fluid_pulling_upgrade — Улучшение "Затягиватель жидкостей"
+ic2:fluid_regulator — Регулятор жидкости
+ic2:foam — Строительная пена
+ic2:foam_sprayer — Распылитель строительной пены
+ic2:forge_hammer — Кузнечный молот
+ic2:frequency_transmitter — Частотный связыватель
+ic2:fuel_rod — Топливный стержень (Пустой)
+ic2:generator — Генератор
+ic2:geo_generator — Геотермальный генератор
+ic2:glass_fibre_cable — Стекловолоконный провод
+ic2:gold_cable — Золотой провод
+ic2:gold_casing — Золотая оболочка
+ic2:gold_dust — Золотая пыль
+ic2:gold_plate — Золотая пластина
+ic2:gray_painter — Тёмно-серый валик
+ic2:gray_wall — Серый пенобетон
+ic2:green_painter — Зелёный валик
+ic2:green_wall — Зелёный пенобетон
+ic2:grin_powder — Токсичная пыль
+ic2:hazmat_chestplate — Защитная куртка
+ic2:hazmat_helmet — Шлем-акваланг
+ic2:hazmat_leggings — Защитные штаны
+ic2:heat_conductor — Теплопровод
+ic2:heat_exchanger — Теплообменник
+ic2:heat_vent — Теплоотвод
+ic2:heatpack — Нагревающая капсула
+ic2:heavy_water_bucket — Ведро тяжёлой воды
+ic2:heavy_water_cell — Капсула тяжёлой воды
+ic2:hops — Хмель
+ic2:hot_coolant_bucket — Ведро горячего хладагента
+ic2:hot_coolant_cell — Капсула горячего хладагента
+ic2:hot_water_bucket — Ведро горячей воды
+ic2:hot_water_cell — Капсула горячей воды
+ic2:hv_transformer — Трансформатор ВН
+ic2:hydrated_tin_dust — Гидратированная оловянная пыль
+ic2:hydration_cell — Увлажняющая капсула
+ic2:hydrogen_bucket — Ведро водорода
+ic2:hydrogen_cell — Капсула водорода
+ic2:induction_furnace — Индукционная печь
+ic2:industrial_diamond — Промышленный алмаз
+ic2:industrial_workbench — Промышленный верстак
+ic2:insulated_copper_cable — Изолированный медный провод
+ic2:insulated_gold_cable — Изолированный золотой провод
+ic2:insulated_iron_cable — Изолированный высоковольтный провод
+ic2:insulated_tin_cable — Изолированный оловянный провод
+ic2:iodine — Иод
+ic2:iridium — Укреплённая иридиевая пластина
+ic2:iridium_drill — Иридиевый бур
+ic2:iridium_neutron_reflector — Иридиевый отражатель нейтронов
+ic2:iridium_ore — Иридиевая руда
+ic2:iridium_shard — Осколок иридия
+ic2:iridium_storage_box — Иридиевый контейнер
+ic2:iridium_tank — Иридиевый бак
+ic2:iron_cable — Высоковольтный провод
+ic2:iron_casing — Железная оболочка
+ic2:iron_cutting_blade — Железный режущий диск
+ic2:iron_dust — Железная пыль
+ic2:iron_fence — Железный забор
+ic2:iron_furnace — Железная печь
+ic2:iron_plate — Железная пластина
+ic2:iron_rotor — Железный ротор
+ic2:iron_rotor_blade — Железная лопасть ротора
+ic2:iron_shaft — Железный стержень
+ic2:iron_storage_box — Железный контейнер
+ic2:iron_tank — Железный бак
+ic2:irrigation_tfbp — Террачип "Орошение"
+ic2:item_buffer — Предметный буфер
+ic2:itnt — Промышленный динамит
+ic2:jetpack — Реактивный ранец
+ic2:jetpack_attachment_plate — Крепёж для реактивного ранца
+ic2:jetpack_electric — Электрический реактивный ранец
+ic2:kinetic_generator — Кинетический генератор
+ic2:lapis_dust — Лазуритовая пыль
+ic2:lapis_plate — Лазуритовая пластина
+ic2:lapotron_crystal — Лазуротроновый кристалл
+ic2:lappack — Лазуротроновый ранец
+ic2:lava_cell — Капсула лавы
+ic2:lava_sheet — Лава
+ic2:lead_block — Свинцовый блок
+ic2:lead_casing — Свинцовая оболочка
+ic2:lead_dust — Свинцовая пыль
+ic2:lead_ingot — Свинцовый слиток
+ic2:lead_ore — Свинцовая руда
+ic2:lead_plate — Свинцовая пластина
+ic2:light_blue_painter — Голубой валик
+ic2:light_blue_wall — Голубой пенобетон
+ic2:light_gray_painter — Светло-серый валик
+ic2:light_gray_wall — Светло-серый пенобетон
+ic2:lime_painter — Лаймовый валик
+ic2:lime_wall — Лаймовый пенобетон
+ic2:liquid_heat_exchanger — Жидкостный теплообменник
+ic2:lithium_dust — Литиевая пыль
+ic2:lithium_fuel_rod — Топливный стержень (Литий)
+ic2:luminator — Электролампа
+ic2:lv_transformer — Трансформатор НН
+ic2:lzh_condensator — Лазуритовый конденсатор
+ic2:macerator — Дробитель
+ic2:machine — Базовый корпус машины
+ic2:magenta_painter — Сиреневый валик
+ic2:magenta_wall — Сиреневый пенобетон
+ic2:magnetizer — Намагничиватель
+ic2:manual_kinetic_generator — Ручной кинетический генератор
+ic2:matter_generator — Генератор жидкой материи
+ic2:metal_former — Металлоформовочная машина
+ic2:meter — Ваттметр
+ic2:mfe — МФЭ
+ic2:mfe_chargepad — Заряжающая плита (МФЭ)
+ic2:mfsu — МФСУ
+ic2:mfsu_chargepad — Заряжающая плита (МФСУ)
+ic2:milk_wart — Молочный нарост
+ic2:miner — Буровая установка
+ic2:mining_filter_upgrade — Улучшение «Фильтр добычи»
+ic2:mining_laser — Шахтёрский лазер
+ic2:mining_pipe — Буровая труба
+ic2:mixed_metal_ingot — Композитный слиток
+ic2:mox — Ядерное топливо MOX
+ic2:mox_fuel_rod — Топливный стержень (MOX)
+ic2:mushroom_tfbp — Террачип "Грибы"
+ic2:mv_transformer — Трансформатор СН
+ic2:nano_boots — Нановолоконные ботинки
+ic2:nano_chestplate — Нановолоконный жилет
+ic2:nano_helmet — Нановолоконный шлем
+ic2:nano_leggings — Нановолоконные поножи
+ic2:nano_saber — Наносабля
+ic2:near_depleted_uranium — Исчерпанный ТВЭЛ
+ic2:netherrack_dust — Пыль незерака
+ic2:neutron_reflector — Отражатель нейтронов
+ic2:night_vision_goggles — Прибор ночного видения
+ic2:nuclear_reactor — Ядерный реактор
+ic2:nuke — Ядерная бомба
+ic2:obscurator — Маскировщик
+ic2:obsidian_dust — Обсидиановая пыль
+ic2:obsidian_plate — Обсидиановая пластина
+ic2:oil_berry — Нефтяная ягода
+ic2:orange_painter — Оранжевый валик
+ic2:orange_wall — Оранжевый пенобетон
+ic2:ore_washing_plant — Рудопромывочная машина
+ic2:overclocked_heat_vent — Разогнанный теплоотвод
+ic2:overclocker_upgrade — Улучшение "Ускоритель"
+ic2:oxygen_bucket — Ведро кислорода
+ic2:oxygen_cell — Капсула кислорода
+ic2:pahoehoe_lava_bucket — Ведро базальтовой лавы
+ic2:pahoehoe_lava_cell — Капсула базальтовой лавы
+ic2:painter — Валик
+ic2:pattern_storage — Хранилище шаблонов
+ic2:pellet — Пеллета строительной пены
+ic2:personal_chest — Личный сейф
+ic2:pink_painter — Розовый валик
+ic2:pink_wall — Розовый пенобетон
+ic2:plant_ball — Биомасса
+ic2:plutonium — Плутоний
+ic2:power_unit — Силовой агрегат
+ic2:pulling_upgrade — Улучшение "Затягиватель"
+ic2:pump — Помпа
+ic2:purified_copper — Очищенная измельчённая медная руда
+ic2:purified_gold — Очищенная измельчённая золотая руда
+ic2:purified_iron — Очищенная измельчённая железная руда
+ic2:purified_lead — Очищенная измельчённая свинцовая руда
+ic2:purified_silver — Очищенная измельчённая серебряная руда
+ic2:purified_tin — Очищенная измельчённая оловянная руда
+ic2:purified_uranium — Очищенная измельчённая урановая руда
+ic2:purple_painter — Фиолетовый валик
+ic2:purple_wall — Фиолетовый пенобетон
+ic2:quad_mox_fuel_rod — Счетверённый топливный стержень (MOX)
+ic2:quad_uranium_fuel_rod — Счетверённый топливный стержень (Уран)
+ic2:quantum_boots — Квантовые ботинки
+ic2:quantum_chestplate — Квантовый жилет
+ic2:quantum_helmet — Квантовый шлем
+ic2:quantum_leggings — Квантовые поножи
+ic2:raw_crystal_memory — Необработанный кристалл памяти
+ic2:raw_lead — Рудный свинец
+ic2:raw_lead_block — Блок рудного свинца
+ic2:raw_tin — Рудное олово
+ic2:raw_tin_block — Блок рудного олова
+ic2:raw_uranium — Рудный уран
+ic2:raw_uranium_block — Блок рудного урана
+ic2:rci_lzh — Впрыскиватель реакторного хладагента (лазуритового)
+ic2:rci_rsh — Впрыскиватель реакторного хладагента (красного)
+ic2:re_battery — Аккумулятор
+ic2:re_enriched_uranium — Низкообогащённый ТВЭЛ
+ic2:reactor_access_hatch — Реакторный люк
+ic2:reactor_chamber — Реакторная камера
+ic2:reactor_coolant_cell — Охлаждающий стержень 10к
+ic2:reactor_fluid_port — Реакторный насос-порт
+ic2:reactor_heat_exchanger — Реакторный теплообменник
+ic2:reactor_heat_plating — Теплоёмкая реакторная обшивка
+ic2:reactor_heat_vent — Реакторный теплоотвод
+ic2:reactor_plating — Реакторная обшивка
+ic2:reactor_redstone_port — Реакторный проводник красного сигнала
+ic2:reactor_vessel — Реакторный корпус
+ic2:recycler — Утилизатор
+ic2:red_painter — Красный валик
+ic2:red_wall — Красный пенобетон
+ic2:redstone_inverter_upgrade — Улучшение "Инвертор сигнала красного камня"
+ic2:refractory_bricks — Огнеупорные кирпичи
+ic2:reinforced_door — Укреплённая дверь
+ic2:reinforced_glass — Укреплённое стекло
+ic2:reinforced_stone — Укреплённый камень
+ic2:remote_interface_upgrade — Улучшение «Удалённый интерфейс»
+ic2:replicator — Репликатор
+ic2:resin — Латекс
+ic2:resin_sheet — Латексный лист
+ic2:rsh_condensator — Красный конденсатор
+ic2:rt_generator — Радиоизотопный термоэлектрический генератор
+ic2:rt_heat_generator — Радиоизотопный теплогенератор
+ic2:rtg_pellet — Пеллета РИТЭГ-топлива
+ic2:rubber — Резина
+ic2:rubber_boat — Резиновая шлюпка
+ic2:rubber_boots — Резиновые ботинки
+ic2:rubber_button — Кнопка из гевеи
+ic2:rubber_door — Дверь из гевеи
+ic2:rubber_fence — Забор из гевеи
+ic2:rubber_fence_gate — Калитка из гевеи
+ic2:rubber_leaves — Листва гевеи
+ic2:rubber_log — Древесина гевеи
+ic2:rubber_planks — Доски из гевеи
+ic2:rubber_pressure_plate — Нажимная плита из гевеи
+ic2:rubber_sapling — Саженец гевеи
+ic2:rubber_sheet — Резиновый лист
+ic2:rubber_sign — Табличка из гевеи
+ic2:rubber_slab — Плита из гевеи
+ic2:rubber_stairs — Ступеньки из гевеи
+ic2:rubber_trapdoor — Люк из гевеи
+ic2:rubber_wood — Древесина гевеи
+ic2:scanner — Сканер КР
+ic2:scrap — Утильсырьё
+ic2:scrap_box — Коробка утильсырья
+ic2:semifluid_generator — Полужидкостный генератор
+ic2:sextuple_reactor_coolant_cell — Охлаждающий стержень 60к
+ic2:silicon_dioxide_dust — Диоксид кремния
+ic2:silver_block — Серебряный блок
+ic2:silver_dust — Серебряная пыль
+ic2:silver_ingot — Серебряный слиток
+ic2:single_use_battery — Одноразовая батарейка
+ic2:slag — Шлак
+ic2:small_bronze_dust — Небольшая кучка бронзовой пыли
+ic2:small_copper_dust — Небольшая кучка медной пыли
+ic2:small_diamond_dust — Маленькая кучка алмазной пыли
+ic2:small_gold_dust — Небольшая кучка золотой пыли
+ic2:small_iron_dust — Небольшая кучка железной пыли
+ic2:small_lapis_dust — Небольшая кучка лазуритовой пыли
+ic2:small_lead_dust — Небольшая кучка свинцовой пыли
+ic2:small_lithium_dust — Небольшая кучка литиевой пыли
+ic2:small_obsidian_dust — Небольшая кучка обсидиановой пыли
+ic2:small_plutonium — Кусочек плутония
+ic2:small_power_unit — Малый силовой агрегат
+ic2:small_silver_dust — Небольшая кучка серебряной пыли
+ic2:small_sulfur_dust — Небольшая кучка серной пыли
+ic2:small_tin_dust — Небольшая кучка оловянной пыли
+ic2:small_uranium_235 — Кусочек урана-235
+ic2:small_uranium_238 — Кусочек урана-238
+ic2:solar_distiller — Солнечный опреснитель
+ic2:solar_generator — Солнечная панель
+ic2:solid_canner — Консервирующая машина
+ic2:solid_heat_generator — Твердотопливный теплогенератор
+ic2:sorting_machine — Электрическая сортирующая машина
+ic2:splitter_cable — Провод-разъединитель
+ic2:steam_bucket — Ведро пара
+ic2:steam_cell — Капсула пара
+ic2:steam_generator — Парогенератор
+ic2:steam_kinetic_generator — Кинетический парогенератор
+ic2:steam_repressurizer — Преобразователь пара
+ic2:steam_turbine — Паровая турбина
+ic2:steam_turbine_blade — Лопасть паровой турбины
+ic2:steel_block — Стальной блок
+ic2:steel_casing — Стальная оболочка
+ic2:steel_cutting_blade — Стальной режущий диск
+ic2:steel_ingot — Стальной слиток
+ic2:steel_plate — Стальная пластина
+ic2:steel_rotor — Стальной ротор
+ic2:steel_rotor_blade — Стальная лопасть ротора
+ic2:steel_shaft — Стальной стержень
+ic2:steel_storage_box — Стальной контейнер
+ic2:steel_tank — Стальной бак
+ic2:stirling_generator — Генератор Стирлинга
+ic2:stirling_kinetic_generator — Кинетический генератор Стирлинга
+ic2:stone_dust — Каменная пыль
+ic2:stripped_rubber_log — Обтёсанное бревно гевеи
+ic2:stripped_rubber_wood — Обтёсанная древесина гевеи
+ic2:sulfur_dust — Серная пыль
+ic2:superheated_steam_bucket — Ведро перегретого пара
+ic2:superheated_steam_cell — Капсула перегретого пара
+ic2:tank — Бак
+ic2:teleporter — Телепорт
+ic2:terra_wart — Земляной нарост
+ic2:terraformer — Терраформер
+ic2:tesla_coil — Катушка Теслы
+ic2:thick_neutron_reflector — Утолщённый отражатель нейтронов
+ic2:tin_block — Оловянный блок
+ic2:tin_cable — Оловянный провод
+ic2:tin_can — Консервная банка
+ic2:tin_casing — Оловянная оболочка
+ic2:tin_dust — Оловянная пыль
+ic2:tin_ingot — Оловянный слиток
+ic2:tin_ore — Оловянная руда
+ic2:tin_plate — Оловянная пластина
+ic2:tool_box — Ящик для инструментов
+ic2:trade_o_mat — Ресурсообменник
+ic2:transformer_upgrade — Улучшение "Трансформатор"
+ic2:treetap — Краник
+ic2:triple_insulated_iron_cable — Высоковольтный провод с тройной изоляцией
+ic2:triple_reactor_coolant_cell — Охлаждающий стержень 30к
+ic2:tritium_fuel_rod — Топливный стержень (Тритий)
+ic2:uranium — Обогащённое урановое ядерное топливо
+ic2:uranium_235 — Уран-235
+ic2:uranium_238 — Уран-238
+ic2:uranium_block — Урановый блок
+ic2:uranium_fuel_rod — Топливный стержень (Уран)
+ic2:uranium_ingot — Очищенный уран
+ic2:uranium_ore — Урановая руда
+ic2:uranium_pellet — Пеллеты обогащённого уранового ядерного топлива
+ic2:uu_matter_bucket — Ведро материи
+ic2:uu_matter_cell — Капсула материи
+ic2:uu_scanner — Сканер
+ic2:water_cell — Капсула воды
+ic2:water_generator — Гидрогенератор
+ic2:water_kinetic_generator — Кинетический гидрогенератор
+ic2:water_sheet — Вода
+ic2:weed — Сорняк
+ic2:weed_ex_bucket — Ведро средства от сорняков
+ic2:weed_ex_cell — Капсула средства от сорняков
+ic2:weeding_trowel — Пропалыватель
+ic2:weighted_fluid_distributor — Весовой жидкостный распределитель
+ic2:weighted_item_distributor — Весовой предметный распределитель
+ic2:white_painter — Белый валик
+ic2:white_wall — Белый пенобетон
+ic2:wind_generator — Ветрогенератор
+ic2:wind_kinetic_generator — Кинетический ветрогенератор
+ic2:wind_meter — Ветромер
+ic2:wooden_rotor — Деревянный ротор
+ic2:wooden_rotor_blade — Деревянная лопасть ротора
+ic2:wooden_storage_box — Деревянный контейнер
+ic2:wool_sheet — Шерстяной лист
+ic2:wrench — Гаечный ключ
+ic2:yellow_painter — Жёлтый валик
+ic2:yellow_wall — Жёлтый пенобетон

@@ -83,11 +83,10 @@ public class ItemSprayer extends Item implements StandardFluidItem, IBoxable {
       int mode = nbtData.getInt("mode");
       mode = mode == 0 ? 1 : 0;
       nbtData.putInt("mode", mode);
-      String sMode =
-          Component.translatable(mode == 0 ? "ic2.tooltip.mode.normal" : "ic2.tooltip.mode.single")
-              .getString();
       IC2.sideProxy.messagePlayer(
-          player, Component.translatable("ic2.tooltip.mode", sMode).getString());
+          player,
+          "ic2.tooltip.mode",
+          mode == 0 ? "ic2.tooltip.mode.normal" : "ic2.tooltip.mode.single");
       return new InteractionResultHolder<>(InteractionResult.SUCCESS, stack);
     }
 

@@ -52,41 +52,14 @@ public class IC2 {
             getIdentifier("general"),
             new ItemGroupIconSupplier(Ic2ItemGroupType.GENERAL),
             Ic2ItemGroupType.GENERAL);
-    tabIc2GeneratorsAndWiring =
-        envProxy.createItemGroup(
-            getIdentifier("generators_and_wiring"),
-            new ItemGroupIconSupplier(Ic2ItemGroupType.GENERATORS_AND_WIRING),
-            Ic2ItemGroupType.GENERATORS_AND_WIRING);
-    tabIc2Reactor =
-        envProxy.createItemGroup(
-            getIdentifier("reactor"),
-            new ItemGroupIconSupplier(Ic2ItemGroupType.REACTOR),
-            Ic2ItemGroupType.REACTOR);
-    tabIc2Machines =
-        envProxy.createItemGroup(
-            getIdentifier("machines"),
-            new ItemGroupIconSupplier(Ic2ItemGroupType.MACHINES),
-            Ic2ItemGroupType.MACHINES);
-    tabIc2ToolsAndUtilities =
-        envProxy.createItemGroup(
-            getIdentifier("tools_and_utilities"),
-            new ItemGroupIconSupplier(Ic2ItemGroupType.TOOLS_AND_UTILITIES),
-            Ic2ItemGroupType.TOOLS_AND_UTILITIES);
-    tabIc2Combat =
-        envProxy.createItemGroup(
-            getIdentifier("combat"),
-            new ItemGroupIconSupplier(Ic2ItemGroupType.COMBAT),
-            Ic2ItemGroupType.COMBAT);
-    tabIc2Farming =
-        envProxy.createItemGroup(
-            getIdentifier("farming"),
-            new ItemGroupIconSupplier(Ic2ItemGroupType.FARMING),
-            Ic2ItemGroupType.FARMING);
-    tabIc2Materials =
-        envProxy.createItemGroup(
-            getIdentifier("materials"),
-            new ItemGroupIconSupplier(Ic2ItemGroupType.MATERIALS),
-            Ic2ItemGroupType.MATERIALS);
+    // Keep the public category fields compatible with addons while registering one tab.
+    tabIc2GeneratorsAndWiring = tabIc2General;
+    tabIc2Reactor = tabIc2General;
+    tabIc2Machines = tabIc2General;
+    tabIc2ToolsAndUtilities = tabIc2General;
+    tabIc2Combat = tabIc2General;
+    tabIc2Farming = tabIc2General;
+    tabIc2Materials = tabIc2General;
     threadPool = new PriorityExecutor(Math.max(Runtime.getRuntime().availableProcessors(), 2));
     random = RandomSource.createNewThreadLocalInstance();
     initialized = false;

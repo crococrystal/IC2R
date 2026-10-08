@@ -187,7 +187,7 @@ public abstract class TileEntityChargePadBlock extends TileEntityElectricBlock {
       this.redstoneMode = 0;
     }
 
-    IC2.sideProxy.messagePlayer(player, this.getRedstoneMode());
+    IC2.sideProxy.messagePlayer(player, "ic2.blockChargepad.gui.mod.redstone" + this.redstoneMode);
   }
 
   @Override

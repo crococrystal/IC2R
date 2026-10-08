@@ -130,9 +130,7 @@ public class ItemArmorNanoSuit extends ItemArmorElectric implements IItemHudProv
 
           if (IC2.sideProxy.isSimulating()) {
             nbtData.putShort("hud_mode", hubmode);
-            IC2.sideProxy.messagePlayer(
-                player,
-                Component.translatable(HudMode.getFromID(hubmode).getTranslationKey()).getString());
+            IC2.sideProxy.messagePlayer(player, HudMode.getFromID(hubmode).getTranslationKey());
           }
         }
 

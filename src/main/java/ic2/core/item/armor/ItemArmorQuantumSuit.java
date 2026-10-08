@@ -305,9 +305,7 @@ public class ItemArmorQuantumSuit extends ItemArmorElectric
 
         if (IC2.sideProxy.isSimulating()) {
           nbtData.putShort("hud_mode", hudmode);
-          IC2.sideProxy.messagePlayer(
-              player,
-              Component.translatable(HudMode.getFromID(hudmode).getTranslationKey()).getString());
+          IC2.sideProxy.messagePlayer(player, HudMode.getFromID(hudmode).getTranslationKey());
         }
       }
 
