@@ -2,7 +2,6 @@
   "tab": "ic2:general",
   "title": "IndustrialCraft 2",
   "icon": "ic2:mining_laser",
-  "background": "#FFFFFF",
   "sections": [
     {
       "id": "void_protocol:ic2_general",

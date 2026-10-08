@@ -28,8 +28,8 @@ pinned ModernTabs/KubeJS/Rhino dependencies and deploys the external tab configu
 then launches PrismLauncher. `--install-only` installs an already verified build.
 
 Edit `minecraft/kubejs/config/ic2_creative.json` in the instance for section item IDs,
-the tab name and the item icon (`ic2:mining_laser` by default). The `background` color
-multiplies the GUI texture's color; use `#FFFFFF` to preserve its original brightness.
+the tab name and the item icon (`ic2:mining_laser` by default). The tab uses Minecraft's
+untinted background; custom section colors belong to the section designs below.
 Section designs live in `minecraft/kubejs/assets/void_protocol/moderntabs/sections/`; PNG banners live in
 `minecraft/kubejs/assets/void_protocol/textures/gui/sprites/`. Startup-script changes
 need a full restart. Section headings use `font/creative_icons.json`: bitmap glyphs

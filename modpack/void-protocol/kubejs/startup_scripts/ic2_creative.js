@@ -6,8 +6,7 @@ if (!ic2CreativeLayout || !ic2CreativeLayout.sections) {
 
 ModernTabs.setExampleTabEnabled(false)
 ModernTabs.configureTab(ic2CreativeLayout.tab,
-  new TabDesign().sectionsEnabled(true)
-    .backgroundColor(new ModernColor(ic2CreativeLayout.background)))
+  new TabDesign().sectionsEnabled(true))
 
 ic2CreativeLayout.sections.forEach(section => {
   section.items.forEach(id => SectionedItems.addItemById(section.id, id))
