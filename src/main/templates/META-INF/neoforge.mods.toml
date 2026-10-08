@@ -15,6 +15,3 @@ ${mod_description}
 
 [[mixin]]
 config="ic2.mixins.json"
-
-[[mixins]]
-config="ic2.client.mixins.json"

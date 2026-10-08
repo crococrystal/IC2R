@@ -2291,14 +2291,8 @@
     "bronze": 16744448,
     "steel": 8421504
   },
-  "fork_native_textures": {
-    "gui/creative_section.png": {
-      "sha256": "98c37448cba116dc05888198f41a2aac89678363137dd1e96be469e35263af28",
-      "width": 162,
-      "height": 18
-    }
-  },
-  "fork_native_png_count": 1,
+  "fork_native_textures": {},
+  "fork_native_png_count": 0,
   "workflow_schema": 2,
   "base_commit": "417fddb1fd23b926accc02b380cd658121f5c9e1",
   "active_texture_mode": "modern_with_opt_in_legacy",

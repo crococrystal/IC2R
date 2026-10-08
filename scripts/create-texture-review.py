@@ -257,7 +257,7 @@ def generate(output):
     assert counts["fork"] == manifest.get("fork_native_png_count", 0)
     assert {row["path"] for row in rows if row["selectable"]} == set(selectable_mapping)
     assert all(row["modern"] or row["minecraft"] for row in rows if row["selectable"])
-    data = {"rows": rows, "counts": dict(counts), "identical": sum(row["identical"] for row in rows)}
+    data = {"rows": rows, "counts": {category: counts[category] for category in ("pairs", "added", "modern_only", "fork")}, "identical": sum(row["identical"] for row in rows)}
     html = HTML.replace("__DATA__", json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")).replace("__BASE_COMMIT__", json.dumps(BASE_COMMIT))
     (output / "index.html").write_text(html)
     with zipfile.ZipFile(output / "modern-originals.zip", "w", zipfile.ZIP_DEFLATED) as modern_zip:

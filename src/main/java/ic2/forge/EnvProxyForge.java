@@ -9,7 +9,6 @@ import ic2.api.event.ExplosionEvent;
 import ic2.api.event.RetextureEvent;
 import ic2.api.item.IElectricItem;
 import ic2.core.IC2;
-import ic2.core.Ic2CreativeTab;
 import ic2.core.Ic2ItemGroupType;
 import ic2.core.fluid.EnvFluidHandler;
 import ic2.core.item.BlockItemEnergyStorage;
@@ -276,7 +275,6 @@ public final class EnvProxyForge implements EnvProxy {
     pendingTabRegistrations.add(new TabRegistration(id, iconSupplier, groupType));
     CreativeModeTab tab =
         CreativeModeTab.builder()
-            .withTabFactory(Ic2CreativeTab::new)
             .title(Component.translatable("itemGroup." + id.getNamespace() + "." + id.getPath()))
             .icon(iconSupplier)
             .displayItems(

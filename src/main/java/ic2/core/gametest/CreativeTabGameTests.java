@@ -5,19 +5,15 @@ import ic2.api.crops.Crops;
 import ic2.api.item.ElectricItem;
 import ic2.api.item.IElectricItem;
 import ic2.core.IC2;
-import ic2.core.Ic2CreativeTab;
 import ic2.core.Ic2ItemGroupType;
 import ic2.core.item.BlockItemEnergyStorage;
 import ic2.core.item.ItemCropSeed;
 import ic2.core.item.armor.ItemArmorFluidTank;
 import ic2.core.ref.Ic2Items;
 import ic2.core.util.StackUtil;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.function.Supplier;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -111,62 +107,19 @@ public class CreativeTabGameTests {
     }
     helper.assertTrue(
         stacks.size() == expectedStacks, "creative tab has missing or duplicate stacks");
-    Ic2CreativeTab groupedTab = (Ic2CreativeTab) tab;
-    List<ItemStack> display = groupedTab.getGroupedDisplayItems();
     helper.assertTrue(
-        display.stream().filter(stack -> !stack.isEmpty()).count() == expectedStacks
-            && display.containsAll(stacks),
-        "grouped creative view must preserve every real item and variant from the public inventory");
-    Map<Integer, Ic2ItemGroupType> headers = groupedTab.getHeaderRows();
-    helper.assertTrue(headers.size() == 8, "single tab must have eight category header rows");
+        tab.getClass() == CreativeModeTab.class,
+        "IC2 must expose a standard flat tab; section rendering belongs to the modpack");
     helper.assertTrue(
-        new ArrayList<>(headers.values()).equals(List.of(Ic2ItemGroupType.values())),
-        "category order must match the original enum");
-    helper.assertTrue(display.size() % 9 == 0, "category sections must align to complete rows");
-    List<Integer> headerPositions = new ArrayList<>(headers.keySet());
-    for (int index = 0; index < headerPositions.size(); index++) {
-      int start = headerPositions.get(index) * 9;
-      for (int slot = start; slot < start + 9; slot++) {
-        helper.assertTrue(display.get(slot).isEmpty(), "header row must contain only empty slots");
-      }
-      Set<Item> categoryItems = new HashSet<>();
-      Ic2Items.CREATIVE_TAB_ITEMS
-          .get(headers.get(headerPositions.get(index)))
-          .forEach(supplier -> categoryItems.add(supplier.get()));
-      int end =
-          index + 1 < headerPositions.size() ? headerPositions.get(index + 1) * 9 : display.size();
-      helper.assertTrue(!display.get(start + 9).isEmpty(), "items must start below the header");
-      for (int slot = start + 9; slot < end; slot++) {
-        ItemStack stack = display.get(slot);
-        helper.assertTrue(
-            stack.isEmpty() || categoryItems.contains(stack.getItem()),
-            "items and all their variants must remain in their original category");
-      }
-    }
-    helper.assertTrue(
-        tab.getSearchTabDisplayItems().stream().noneMatch(ItemStack::isEmpty),
-        "search inventory must exclude header rows and padding");
-    helper.assertTrue(
-        tab.getSearchTabDisplayItems().size() == expectedStacks,
-        "search inventory must keep every real item and variant");
-    for (int row = 0; row <= display.size() / 9 - 5; row++) {
-      helper.assertTrue(
-          groupedTab.getFirstVisibleRow(display.subList(row * 9, row * 9 + 45)) == row,
-          "scroll position must match the visible row even when header or padding comes first");
-    }
-    helper.assertTrue(
-        groupedTab.getFirstVisibleRow(Collections.nCopies(45, ItemStack.EMPTY)) == -1,
-        "blank inventory cannot identify a scrolled category");
-    helper.assertTrue(
-        groupedTab.getFirstVisibleRow(List.of(new ItemStack(Ic2Items.DIAMOND_DRILL))) == -1,
-        "a stack outside the visible tab must not identify its scroll position");
+        tab.getSearchTabDisplayItems().stream().noneMatch(ItemStack::isEmpty)
+            && tab.getSearchTabDisplayItems().size() == expectedStacks,
+        "search must preserve every real item and variant without separator stacks");
     tab.buildContents(
         new CreativeModeTab.ItemDisplayParameters(
             helper.getLevel().enabledFeatures(), true, helper.getLevel().registryAccess()));
     helper.assertTrue(
-        groupedTab.getGroupedDisplayItems().size() == display.size()
-            && groupedTab.getHeaderRows().equals(headers),
-        "rebuilding the tab must not accumulate headers, padding or item variants");
+        tab.getDisplayItems().size() == expectedStacks,
+        "rebuilding the flat tab must not accumulate item variants");
     helper.succeed();
   }
 

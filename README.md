@@ -3,7 +3,8 @@
 
 This Legacy fork targets Minecraft 1.21.1 / NeoForge, lets you select textures from IC2
 `2.8.222-ex112`, adds complete Russian localization, and combines IC2's creative
-categories into one tab with eight section banners. Based on upstream IC2R `21.1.66`; item and block IDs stay
+categories into one standard flat tab. The instance configuration in
+`modpack/void-protocol` adds eight sections using ModernTabs and KubeJS. Based on upstream IC2R `21.1.66`; item and block IDs stay
 compatible with that version. The source archive preserves inactive legacy assets
 without reintroducing removed gameplay features. See `docs/legacy-inventory.txt`
 for the item differences and `docs/legacy-textures.json` for the texture mapping.
@@ -21,9 +22,22 @@ are rejected to prevent accidentally reversing your choices.
 The painter now recolors construction-foam walls through IC2's existing
 `StainableBlock` API; the upstream painter previously handled only vanilla colors.
 
+For the local VOID PROTOCOL instance, run `python3 scripts/build-and-launch-void.py`
+(Python 3.11+). It builds, backs up and replaces the instance's IC2 JAR, installs the
+pinned ModernTabs/KubeJS/Rhino dependencies and deploys the external tab configuration,
+then launches PrismLauncher. `--install-only` installs an already verified build.
+
+Edit `minecraft/kubejs/config/ic2_creative.json` in the instance for section item IDs,
+the tab name and the item icon (`ic2:mining_laser` by default). Section designs live
+in `minecraft/kubejs/assets/void_protocol/moderntabs/sections/`; PNG banners live in
+`minecraft/kubejs/assets/void_protocol/textures/gui/sprites/`. Startup-script changes
+need a full restart. ModernTabs currently supports sprite banners rather than
+item-ID icons inside section headings. User edits to deployed files are preserved
+when their project copies have not changed.
+
 <img src="https://img.shields.io/badge/Minecraft-1.21.1-brightgreen" alt="Minecraft 1.21.1">
 <img src="https://img.shields.io/badge/NeoForge-21.1.234-orange" alt="NeoForge 21.1.234">
-<img src="https://img.shields.io/badge/Version-21.1.66--legacy.2-blue" alt="Version 21.1.66-legacy.2">
+<img src="https://img.shields.io/badge/Version-21.1.66--legacy.3-blue" alt="Version 21.1.66-legacy.3">
 <img src="https://img.shields.io/badge/License-AGPL--3.0-blue" alt="License AGPL-3.0">
 
 This project's code was obtained by decompiling the official build `2.9.40-ex119`, with missing and broken functionality migrated over from `2.8.222-ex112`.

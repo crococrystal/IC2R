@@ -1,0 +1,18 @@
+{
+  "priority": 5,
+  "title": {
+    "text": {
+      "translate": "ic2.creative.section.combat"
+    },
+    "color": "#303030",
+    "background": "#00000000",
+    "orientation": "left"
+  },
+  "banner": {
+    "sprite": "void_protocol:creative_section",
+    "color": "#FFFFFF"
+  },
+  "overlay": {
+    "color": "#00000000"
+  }
+}
