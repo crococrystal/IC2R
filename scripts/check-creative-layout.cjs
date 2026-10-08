@@ -24,7 +24,12 @@ for (const [priority, section] of layout.sections.entries()) {
   assert.equal(design.title.text.extra[1].font, 'void_protocol:creative_icons', 'Icon precedes the title')
   assert(design.title.text.extra.at(-1).translate, 'Title follows the icon')
   assert.equal(design.title.color, design.title.secondary_color)
+  assert.equal(design.banner.sprite, 'void_protocol:creative/ic2_banner')
+  assert.equal(design.banner.color, undefined, 'Keep the supplied banner colors without tint')
 }
+const banner = fs.readFileSync(path.join(pack, 'assets/void_protocol/textures/gui/sprites/creative/ic2_banner.png'))
+assert.equal(banner.readUInt32BE(16), 324)
+assert.equal(banner.readUInt32BE(20), 36)
 const font = JSON.parse(fs.readFileSync(path.join(pack, 'assets/void_protocol/font/creative_icons.json'), 'utf8'))
 assert.equal(5 + font.providers[0].advances['\uE000'], 0, 'Cancel ModernTabs built-in left inset')
 for (const provider of font.providers.filter(provider => provider.file)) {
@@ -63,11 +68,7 @@ const originals = stacks.slice()
 const search = stacks.slice()
 const event = {
   setIcon() {}, setDisplayName(title) {
-    assert.equal(title.bold, false)
-    assert.equal(title.extra[0].text, '\uE010')
-    assert.equal(title.extra[0].color, '#FFFFFF')
-    assert.equal(title.extra[1].text, '\uE001')
-    assert.equal(title.extra[2].text, layout.title)
+    assert.equal(title, layout.title, 'Plain tab heading without an icon')
   },
   removeFromParent(predicate) { stacks = stacks.filter(stack => !predicate(stack)) },
   add(values, visibility) {

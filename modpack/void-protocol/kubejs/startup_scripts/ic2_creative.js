@@ -23,11 +23,7 @@ ic2CreativeLayout.sections.forEach(section => {
 
 StartupEvents.modifyCreativeTab(ic2CreativeLayout.tab, event => {
   event.setIcon(Item.of(ic2CreativeLayout.icon))
-  event.setDisplayName(Text.of({ text: '', bold: false, extra: [
-    { text: '\uE010', font: 'void_protocol:creative_icons', color: '#FFFFFF' },
-    { text: '\uE001', font: 'void_protocol:creative_icons' },
-    { text: ic2CreativeLayout.title }
-  ] }))
+  event.setDisplayName(Text.of(ic2CreativeLayout.title))
   var stacks = []
   event.removeFromParent(stack => {
     var rank = ic2CreativeOrder[String(stack.id)]

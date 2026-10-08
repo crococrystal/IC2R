@@ -29,6 +29,6 @@
     "secondary_color": "#303030"
   },
   "banner": {
-    "color": "#C6C6C6"
+    "sprite": "void_protocol:creative/ic2_banner"
   }
 }
