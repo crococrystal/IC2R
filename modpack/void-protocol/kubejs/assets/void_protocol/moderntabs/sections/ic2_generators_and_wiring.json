@@ -25,7 +25,8 @@
     },
     "color": "#303030",
     "background": "#00000000",
-    "orientation": "left"
+    "orientation": "left",
+    "secondary_color": "#303030"
   },
   "banner": {
     "color": "#C6C6C6"

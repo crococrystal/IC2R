@@ -35,11 +35,15 @@ Section designs live in `minecraft/kubejs/assets/void_protocol/moderntabs/sectio
 headings show an icon and bold text on a solid `#C6C6C6` fill, without a decorative banner PNG. Startup-script
 and section item-list changes need a full restart. Section headings use
 `font/creative_icons.json`: bitmap glyphs
-reference IC2's item textures, with 4 px extra left padding and a 5 px icon/title gap.
+reference IC2's item textures, with a 2 px left inset and a 3 px icon/title gap.
 The icon components use white to preserve their texture colors. These are flat sprites;
 ModernTabs does not expose item-ID model rendering inside headings. Asset-only changes
 can be reloaded with F3+T. User edits to deployed files are preserved
 when their project copies have not changed.
+
+The installer disables Modern UI's `text.allowShadow`, preserving its other settings.
+This applies to all text rendered by Modern UI; restart to ensure the change is loaded.
+Section designs use the same primary and secondary text color to avoid ModernTabs' two-tone effect.
 
 `minecraft/kubejs/client_scripts/creative_tooltips.js` hides ModernTabs' section
 label in item tooltips while preserving the section headings and item details.

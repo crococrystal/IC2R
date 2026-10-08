@@ -30,6 +30,16 @@ def mod_ids(path):
     return set()
 
 
+def without_modern_ui_shadow(config):
+    if tomllib.loads(config)['text']['allowShadow'] is False:
+        return config
+    updated, count = re.subn(r'(?m)^([ \t]*allowShadow[ \t]*=[ \t]*)true([ \t]*(?:#.*)?)$',
+                             r'\1false\2', config)
+    if count != 1 or tomllib.loads(updated)['text']['allowShadow'] is not False:
+        raise RuntimeError('Cannot safely disable Modern UI text shadows')
+    return updated
+
+
 def install(changes, backup):
     originals = {path: path.read_bytes() if path.exists() else None for path in changes}
     for path, data in originals.items():
@@ -112,6 +122,10 @@ def main():
             raise RuntimeError(f'Project and instance configuration differ; reconcile before installation: {target}')
         desired[target] = data
     desired[state] = (json.dumps(deployed, indent=2) + '\n').encode()
+    # Modern UI replaces the vanilla renderer targeted by NoShade.
+    modern_text = INSTANCE / 'minecraft/config/ModernUI/text.toml'
+    if modern_text.exists():
+        desired[modern_text] = without_modern_ui_shadow(modern_text.read_text()).encode()
     changes = {path: data for path, data in desired.items() if not path.exists() or path.read_bytes() != data}
     managed_ids = {'ic2'} | {dep['mod_id'] for dep in deps}
     for installed in (INSTANCE / 'minecraft/mods').glob('*.jar'):
