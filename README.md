@@ -34,6 +34,11 @@ For the local VOID PROTOCOL instance, run `python3 scripts/build-and-launch-void
 (Python 3.11+). It builds, backs up and replaces the instance's IC2 JAR, installs the
 pinned ModernTabs/KubeJS/Rhino/REMI dependencies and deploys the external tab configuration,
 then launches PrismLauncher. `--install-only` installs an already verified build.
+After checks pass, an already running VOID PROTOCOL client is closed with SIGTERM
+and relaunched without confirmation; Minecraft's shutdown hook saves the integrated world.
+Run `python3 scripts/build-and-launch-void.py --restart-only` to restart without a build.
+Only Java processes with this instance's game directory are targeted. If shutdown takes
+more than 30 seconds, the operation aborts without force-killing the game or starting a duplicate.
 REMI 4.7.9 includes the upstream fix that defers sidebar widget initialization until EMI
 finishes loading. Its existing instance settings are preserved; EMI and YACL are already
 provided by the target modpack.
