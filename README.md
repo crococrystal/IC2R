@@ -32,7 +32,7 @@ Edit `minecraft/kubejs/config/ic2_creative.json` in the instance for section ite
 the tab name and the item icon (`ic2:mining_laser` by default). The tab uses Minecraft's
 untinted background; custom section colors belong to the section designs below.
 Section designs live in `minecraft/kubejs/assets/void_protocol/moderntabs/sections/`;
-headings show an icon and text on a solid `#C6C6C6` fill, without a decorative banner PNG. Startup-script
+headings show an icon and bold text on a solid `#C6C6C6` fill, without a decorative banner PNG. Startup-script
 and section item-list changes need a full restart. Section headings use
 `font/creative_icons.json`: bitmap glyphs
 reference IC2's item textures, with 4 px extra left padding and a 5 px icon/title gap.

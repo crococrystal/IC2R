@@ -8,6 +8,7 @@ NativeEvents.onEvent(Java.loadClass('net.neoforged.neoforge.client.event.RenderT
   if (sectionId === null) return
   var section = TooltipSections.get(sectionId)
   if (section === null) return
-  var heading = section.title().text().copy().withStyle(TooltipFormatting.BLUE)
+  // Rhino needs the exact signature to distinguish the enum and varargs overloads.
+  var heading = section.title().text().copy()['withStyle(net.minecraft.ChatFormatting)'](TooltipFormatting.BLUE)
   event.getTooltipElements().removeIf(element => heading.equals(element.left().orElse(null)))
 })

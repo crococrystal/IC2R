@@ -18,7 +18,8 @@
           "font": "void_protocol:creative_icons"
         },
         {
-          "translate": "void_protocol.creative.section.painters"
+          "translate": "void_protocol.creative.section.painters",
+          "bold": true
         }
       ]
     },

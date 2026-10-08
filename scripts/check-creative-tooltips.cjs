@@ -5,7 +5,7 @@ const path = require('node:path')
 
 const heading = {
   copy() { return this },
-  withStyle(color) { assert.equal(color, 'BLUE'); return this },
+  'withStyle(net.minecraft.ChatFormatting)'(color) { assert.equal(color, 'BLUE'); return this },
   equals(other) { return other?.text === 'section heading' && other?.color === 'BLUE' }
 }
 let listener

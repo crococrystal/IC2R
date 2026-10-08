@@ -18,7 +18,8 @@
           "font": "void_protocol:creative_icons"
         },
         {
-          "translate": "ic2.creative.section.combat"
+          "translate": "ic2.creative.section.combat",
+          "bold": true
         }
       ]
     },
