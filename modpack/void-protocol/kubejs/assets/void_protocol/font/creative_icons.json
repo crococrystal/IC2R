@@ -87,6 +87,24 @@
       "chars": [
         ""
       ]
+    },
+    {
+      "type": "bitmap",
+      "file": "ic2:item/upgrade/overclocker.png",
+      "height": 12,
+      "ascent": 10,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "ic2:block/generator/reactor/nuclear_reactor_front_active.png",
+      "height": 12,
+      "ascent": 10,
+      "chars": [
+        ""
+      ]
     }
   ]
 }

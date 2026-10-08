@@ -4,8 +4,9 @@
 This Legacy fork targets Minecraft 1.21.1 / NeoForge, lets you select textures from IC2
 `2.8.222-ex112`, adds complete Russian localization, and combines IC2's creative
 categories into one standard flat tab. The instance configuration in
-`modpack/void-protocol` adds nine sections using ModernTabs and KubeJS, including a
-separate section for all 17 paint rollers. Based on upstream IC2R `21.1.66`; item and block IDs stay
+`modpack/void-protocol` adds eleven sections using ModernTabs and KubeJS, including
+separate sections for upgrades, reactor blocks/components and all 17 paint rollers.
+Based on upstream IC2R `21.1.66`; item and block IDs stay
 compatible with that version. The source archive preserves inactive legacy assets
 without reintroducing removed gameplay features. See `docs/legacy-inventory.txt`
 for the item differences and `docs/legacy-textures.json` for the texture mapping.
@@ -37,6 +38,10 @@ then launches PrismLauncher. `--install-only` installs an already verified build
 Edit `minecraft/kubejs/config/ic2_creative.json` in the instance for section item IDs,
 the tab name and the item icon (`ic2:mining_laser` by default). The tab uses Minecraft's
 untinted background; custom section colors belong to the section designs below.
+Array order controls item order within each section. Sorting reuses existing stacks,
+preserving charge, fluids, seeds and other component variants; search entries stay intact.
+Tanks and storage boxes are grouped with machines, and reactor parts follow their families
+and capacities. Check the layout and sorting with `node scripts/check-creative-layout.cjs`.
 Section designs live in `minecraft/kubejs/assets/void_protocol/moderntabs/sections/`;
 headings show an icon and bold text on a solid `#C6C6C6` fill, without a decorative banner PNG. Startup-script
 and section item-list changes need a full restart. Section headings use

@@ -1,3 +1,6 @@
 {
-  "void_protocol.creative.section.painters": "Валики"
+  "void_protocol.creative.section.painters": "Валики",
+  "void_protocol.creative.section.upgrades": "Улучшения",
+  "void_protocol.creative.section.reactor_blocks": "Блоки реактора",
+  "void_protocol.creative.section.reactor_components": "Компоненты реактора"
 }

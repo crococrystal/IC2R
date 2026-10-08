@@ -1,5 +1,5 @@
 {
-  "priority": 6,
+  "priority": 4,
   "title": {
     "text": {
       "text": "",
@@ -9,7 +9,7 @@
           "font": "void_protocol:creative_icons"
         },
         {
-          "text": "",
+          "text": "",
           "font": "void_protocol:creative_icons",
           "color": "#FFFFFF"
         },
@@ -18,7 +18,7 @@
           "font": "void_protocol:creative_icons"
         },
         {
-          "translate": "ic2.creative.section.tools_and_utilities",
+          "translate": "void_protocol.creative.section.reactor_blocks",
           "bold": true
         }
       ]

@@ -1,3 +1,6 @@
 {
-  "void_protocol.creative.section.painters": "Paint Rollers"
+  "void_protocol.creative.section.painters": "Paint Rollers",
+  "void_protocol.creative.section.upgrades": "Upgrades",
+  "void_protocol.creative.section.reactor_blocks": "Reactor Blocks",
+  "void_protocol.creative.section.reactor_components": "Reactor Components"
 }
