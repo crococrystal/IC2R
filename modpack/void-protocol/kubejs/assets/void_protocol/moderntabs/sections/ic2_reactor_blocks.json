@@ -9,17 +9,17 @@
           "font": "void_protocol:creative_icons"
         },
         {
-          "text": "",
-          "font": "void_protocol:creative_icons",
-          "color": "#FFFFFF"
+          "translate": "void_protocol.creative.section.reactor_blocks",
+          "bold": false
         },
         {
           "text": "",
           "font": "void_protocol:creative_icons"
         },
         {
-          "translate": "void_protocol.creative.section.reactor_blocks",
-          "bold": true
+          "text": "",
+          "font": "void_protocol:creative_icons",
+          "color": "#FFFFFF"
         }
       ]
     },

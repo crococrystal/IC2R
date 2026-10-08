@@ -20,8 +20,13 @@ assert(!groups['void_protocol:ic2_general'].some(id => id.endsWith('tank')))
 for (const [priority, section] of layout.sections.entries()) {
   const design = JSON.parse(fs.readFileSync(path.join(pack, 'assets/void_protocol/moderntabs/sections', section.id.split(':')[1] + '.json'), 'utf8'))
   assert.equal(design.priority, priority)
+  assert.equal(design.title.text.extra.find(part => part.translate).bold, false)
+  assert(design.title.text.extra[1].translate, 'Title starts after the canceled inset')
+  assert.equal(design.title.text.extra.at(-1).font, 'void_protocol:creative_icons', 'Icon follows the title')
+  assert.equal(design.title.color, design.title.secondary_color)
 }
 const font = JSON.parse(fs.readFileSync(path.join(pack, 'assets/void_protocol/font/creative_icons.json'), 'utf8'))
+assert.equal(5 + font.providers[0].advances['\uE000'], 0, 'Cancel ModernTabs built-in left inset')
 for (const provider of font.providers.filter(provider => provider.file)) {
   const [namespace, texture] = provider.file.split(':')
   assert(fs.existsSync(path.join(root, 'src/main/resources/assets', namespace, 'textures', texture)))
