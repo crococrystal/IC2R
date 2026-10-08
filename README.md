@@ -41,6 +41,11 @@ ModernTabs does not expose item-ID model rendering inside headings. Asset-only c
 can be reloaded with F3+T. User edits to deployed files are preserved
 when their project copies have not changed.
 
+`minecraft/kubejs/client_scripts/creative_tooltips.js` hides ModernTabs' section
+label in item tooltips while preserving the section headings and item details.
+Reload client scripts with F3+T or restart. Check the filter with
+`node scripts/check-creative-tooltips.cjs`.
+
 <img src="https://img.shields.io/badge/Minecraft-1.21.1-brightgreen" alt="Minecraft 1.21.1">
 <img src="https://img.shields.io/badge/NeoForge-21.1.234-orange" alt="NeoForge 21.1.234">
 <img src="https://img.shields.io/badge/Version-21.1.66--legacy.3-blue" alt="Version 21.1.66-legacy.3">
