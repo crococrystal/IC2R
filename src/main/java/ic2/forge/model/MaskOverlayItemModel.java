@@ -19,6 +19,7 @@ import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.client.resources.model.ModelBaker;
 import net.minecraft.client.resources.model.ModelState;
+import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -93,6 +94,12 @@ public final class MaskOverlayItemModel implements Ic2Model, BakedModel {
   private static ResourceLocation maskToResource(ResourceLocation maskLocation) {
     return ResourceLocation.fromNamespaceAndPath(
         maskLocation.getNamespace(), "textures/" + maskLocation.getPath() + ".png");
+  }
+
+  @Override
+  public void resolveParents(
+      Function<ResourceLocation, UnbakedModel> modelGetter, IGeometryBakingContext context) {
+    modelGetter.apply(this.baseModelLocation).resolveParents(modelGetter);
   }
 
   private List<BakedQuad> getDefaultQuads() {

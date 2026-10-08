@@ -20,6 +20,12 @@ add `--apply` before rebuilding. Each selection replaces the previous one: unche
 textures return to 1.21.1. Schema 1 exports from the old, inverse checkbox workflow
 are rejected to prevent accidentally reversing your choices.
 
+The current selection in `docs/selected-textures.json` uses all 61 original 1.12.2
+upgrade sprites (including directional variants) and both obscurator sprites.
+The mining filter has no 1.12.2 counterpart and keeps its modern texture.
+The obscurator's nested generated model now resolves its parents before baking,
+fixing the invisible item while retaining its scanned-block overlay.
+
 The painter now recolors construction-foam walls through IC2's existing
 `StainableBlock` API; the upstream painter previously handled only vanilla colors.
 
@@ -52,7 +58,7 @@ Reload client scripts with F3+T or restart. Check the filter with
 
 <img src="https://img.shields.io/badge/Minecraft-1.21.1-brightgreen" alt="Minecraft 1.21.1">
 <img src="https://img.shields.io/badge/NeoForge-21.1.234-orange" alt="NeoForge 21.1.234">
-<img src="https://img.shields.io/badge/Version-21.1.66--legacy.3-blue" alt="Version 21.1.66-legacy.3">
+<img src="https://img.shields.io/badge/Version-21.1.66--legacy.4-blue" alt="Version 21.1.66-legacy.4">
 <img src="https://img.shields.io/badge/License-AGPL--3.0-blue" alt="License AGPL-3.0">
 
 This project's code was obtained by decompiling the official build `2.9.40-ex119`, with missing and broken functionality migrated over from `2.8.222-ex112`.

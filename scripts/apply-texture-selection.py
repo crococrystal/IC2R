@@ -205,6 +205,7 @@ def self_test():
             client.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(RESOURCES.parent / "java/ic2/core/proxy/SideProxyClient.java", client)
             RESOURCES, MANIFEST = fixture / "resources", fixture / "manifest.json"
+            apply_changes(prepare(valid)[1])
             assert prepare(valid)[1] == {}, "Empty selection must equal modern baseline"
             _, changes, _ = prepare({**valid, "use_legacy": chosen})
             apply_changes(changes)
