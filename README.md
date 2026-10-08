@@ -1,25 +1,29 @@
 
 # IndustrialCraft 2: Refactored
 
-This Legacy fork targets Minecraft 1.21.1 / NeoForge, restores textures from IC2
+This Legacy fork targets Minecraft 1.21.1 / NeoForge, lets you select textures from IC2
 `2.8.222-ex112`, adds complete Russian localization, and combines IC2's creative
 categories into one tab with eight section banners. Based on upstream IC2R `21.1.66`; item and block IDs stay
 compatible with that version. The source archive preserves inactive legacy assets
 without reintroducing removed gameplay features. See `docs/legacy-inventory.txt`
 for the item differences and `docs/legacy-textures.json` for the texture mapping.
 
-Run `python3 scripts/create-texture-review.py` (Python 3 with Pillow) to generate a
-local, two-column texture review page with checkboxes to keep selected 1.21.1
-textures. Export the selection as JSON, then preview it with
+Textures and crop models use the original 1.21.1 assets by default. Run
+`python3 scripts/create-texture-review.py` (Python 3 with Pillow) to generate a
+local, two-column review page and check only the 1.12.2 textures you want to use.
+Pixel-identical pairs are hidden; crop pairs follow growth stages instead of file
+numbers. Export the selection as JSON, then preview it with
 `python3 scripts/apply-texture-selection.py ic2r-texture-selection.json`;
-add `--apply` to restore those textures before rebuilding.
+add `--apply` before rebuilding. Each selection replaces the previous one: unchecked
+textures return to 1.21.1. Schema 1 exports from the old, inverse checkbox workflow
+are rejected to prevent accidentally reversing your choices.
 
 The painter now recolors construction-foam walls through IC2's existing
 `StainableBlock` API; the upstream painter previously handled only vanilla colors.
 
 <img src="https://img.shields.io/badge/Minecraft-1.21.1-brightgreen" alt="Minecraft 1.21.1">
 <img src="https://img.shields.io/badge/NeoForge-21.1.234-orange" alt="NeoForge 21.1.234">
-<img src="https://img.shields.io/badge/Version-21.1.66--legacy.1-blue" alt="Version 21.1.66-legacy.1">
+<img src="https://img.shields.io/badge/Version-21.1.66--legacy.2-blue" alt="Version 21.1.66-legacy.2">
 <img src="https://img.shields.io/badge/License-AGPL--3.0-blue" alt="License AGPL-3.0">
 
 This project's code was obtained by decompiling the official build `2.9.40-ex119`, with missing and broken functionality migrated over from `2.8.222-ex112`.

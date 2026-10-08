@@ -167,18 +167,6 @@ public final class SideProxyClient implements SideProxy {
         (state, world, post, tintIndex) -> 6723908, Ic2Blocks.RUBBER_LEAVES);
     envProxy.registerColorProvider((var1, var2) -> 6723908, Ic2Items.RUBBER_LEAVES);
     envProxy.registerColorProvider(SideProxyClient::getFluidCellTintColor, Ic2Items.EMPTY_CELL);
-    envProxy.registerColorProvider(
-        (state, world, pos, tintIndex) -> 10454093, Ic2Blocks.WOODEN_STORAGE_BOX);
-    envProxy.registerColorProvider((stack, tintIndex) -> 10454093, Ic2Items.WOODEN_STORAGE_BOX);
-    envProxy.registerColorProvider(
-        (state, world, pos, tintIndex) -> 13158600, Ic2Blocks.IRON_STORAGE_BOX);
-    envProxy.registerColorProvider((stack, tintIndex) -> 13158600, Ic2Items.IRON_STORAGE_BOX);
-    envProxy.registerColorProvider(
-        (state, world, pos, tintIndex) -> 16744448, Ic2Blocks.BRONZE_STORAGE_BOX);
-    envProxy.registerColorProvider((stack, tintIndex) -> 16744448, Ic2Items.BRONZE_STORAGE_BOX);
-    envProxy.registerColorProvider(
-        (state, world, pos, tintIndex) -> 8421504, Ic2Blocks.STEEL_STORAGE_BOX);
-    envProxy.registerColorProvider((stack, tintIndex) -> 8421504, Ic2Items.STEEL_STORAGE_BOX);
     envProxy.registerBlockLayer(RenderType.cutoutMipped(), Ic2Blocks.FOAM);
     envProxy.registerBlockLayer(RenderType.cutoutMipped(), Ic2Blocks.REINFORCED_GLASS);
     envProxy.registerBlockLayer(RenderType.cutoutMipped(), Ic2Blocks.REINFORCED_DOOR);

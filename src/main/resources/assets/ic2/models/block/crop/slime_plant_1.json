@@ -2,6 +2,6 @@
   "parent": "block/cross",
   "render_type": "cutout_mipped",
   "textures": {
-    "cross": "ic2:block/crop/slime_plant_2"
+    "cross": "ic2:block/crop/slime_plant_1"
   }
 }

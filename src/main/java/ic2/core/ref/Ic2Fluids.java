@@ -10,54 +10,38 @@ public final class Ic2Fluids {
       create("uu_matter", 3000, 3000, 0, 300, false, "uu_matter", "uu_matter", -12909261);
   public static final EnvFluidHandler.FluidRefs CONSTRUCTION_FOAM =
       create(
-          "construction_foam",
-          10000,
-          50000,
-          0,
-          300,
-          false,
-          "construction_foam",
-          "construction_foam",
-          -199089630);
+          "construction_foam", 10000, 50000, 0, 300, false, "fluid_3", "hot_coolant", -199089630);
   public static final EnvFluidHandler.FluidRefs COOLANT =
       create("coolant", 1000, 3000, 0, 300, false, "coolant", "coolant", -15443350);
   public static final EnvFluidHandler.FluidRefs CREOSOTE =
-      create("creosote", 10000, 50000, 0, 300, false, "creosote", "creosote", -331005940);
+      create("creosote", 10000, 50000, 0, 300, false, "fluid", "fluid", -331005940);
   public static final EnvFluidHandler.FluidRefs HOT_COOLANT =
       create("hot_coolant", 1000, 3000, 0, 1200, false, "hot_coolant", "hot_coolant", -4904908);
   public static final EnvFluidHandler.FluidRefs PAHOEHOE_LAVA =
       create("pahoehoe_lava", 50000, 250000, 10, 1200, false, "pahoehoe_lava", null, -8686484);
   public static final EnvFluidHandler.FluidRefs BIOMASS =
-      create("biomass", 1000, 3000, 0, 300, false, "biomass", "biomass", -1237485016);
+      create("biomass", 1000, 3000, 0, 300, false, "fluid", "fluid", -1237485016);
   public static final EnvFluidHandler.FluidRefs BIOGAS =
-      create("biogas", 1000, 3000, 0, 300, true, "biogas", null, -188435879);
+      create("biogas", 1000, 3000, 0, 300, true, "fluid_3", null, -188435879);
   public static final EnvFluidHandler.FluidRefs DISTILLED_WATER =
       create(
-          "distilled_water",
-          1000,
-          1000,
-          0,
-          300,
-          false,
-          "distilled_water",
-          "distilled_water",
-          -632331785);
+          "distilled_water", 1000, 1000, 0, 300, false, "fluid_water", "fluid_water", -632331785);
   public static final EnvFluidHandler.FluidRefs SUPERHEATED_STEAM =
-      create("superheated_steam", -3000, 100, 0, 600, true, "superheated_steam", null, -185797131);
+      create("superheated_steam", -3000, 100, 0, 600, true, "fluid_3", null, -185797131);
   public static final EnvFluidHandler.FluidRefs STEAM =
-      create("steam", -800, 300, 0, 420, true, "steam", null, -186852132);
+      create("steam", -800, 300, 0, 420, true, "fluid_3", null, -186852132);
   public static final EnvFluidHandler.FluidRefs HOT_WATER =
-      create("hot_water", 1000, 1000, 0, 350, false, "hot_water", "hot_water", -632884747);
+      create("hot_water", 1000, 1000, 0, 350, false, "fluid_water", "fluid_water", -632884747);
   public static final EnvFluidHandler.FluidRefs WEED_EX =
       create("weed_ex", 1000, 1000, 0, 300, false, "weed_ex", null, -16298220);
   public static final EnvFluidHandler.FluidRefs AIR =
-      create("air", -100, 500, 0, 300, true, "air", null, 1610481149);
+      create("air", -100, 500, 0, 300, true, "fluid_2", null, 1610481149);
   public static final EnvFluidHandler.FluidRefs HYDROGEN =
-      create("hydrogen", -100, 500, 0, 300, true, "hydrogen", null, -2034379563);
+      create("hydrogen", -100, 500, 0, 300, true, "fluid_2", null, -2034379563);
   public static final EnvFluidHandler.FluidRefs OXYGEN =
-      create("oxygen", 0, 500, 0, 300, true, "oxygen", null, -2034581547);
+      create("oxygen", 0, 500, 0, 300, true, "fluid_2", null, -2034581547);
   public static final EnvFluidHandler.FluidRefs HEAVY_WATER =
-      create("heavy_water", 1000, 1000, 0, 300, false, "heavy_water", "heavy_water", -45191196);
+      create("heavy_water", 1000, 1000, 0, 300, false, "fluid", "fluid", -45191196);
 
   public static void init() {}
 
@@ -75,7 +59,6 @@ public final class Ic2Fluids {
     ResourceLocation stillSpriteId = IC2.getIdentifier("block/fluid/" + stillSprite + "_still");
     ResourceLocation flowingSpriteId =
         flowingSprite != null ? IC2.getIdentifier("block/fluid/" + flowingSprite + "_flow") : null;
-    // Legacy sprites contain their color; retain opacity without tinting them twice.
     return FluidHandler.createFluid(
         IC2.getIdentifier(name),
         density,
@@ -85,6 +68,6 @@ public final class Ic2Fluids {
         isGaseous,
         stillSpriteId,
         flowingSpriteId,
-        (color & 0xFF000000) | 0xFFFFFF);
+        color);
   }
 }
